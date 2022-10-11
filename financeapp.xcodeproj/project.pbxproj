@@ -14,6 +14,8 @@
 		E26DB58A28F5966B00434A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58828F5966B00434A8A /* LaunchScreen.storyboard */; };
 		E2BEF78328F59728002ECFC7 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78228F59728002ECFC7 /* CollectionViewController.swift */; };
 		E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */; };
+		E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */; };
+		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
 		E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		E26DB58B28F5966B00434A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2BEF78228F59728002ECFC7 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,17 +64,75 @@
 		E26DB57C28F5966A00434A8A /* financeapp */ = {
 			isa = PBXGroup;
 			children = (
-				E26DB57D28F5966A00434A8A /* AppDelegate.swift */,
-				E26DB57F28F5966A00434A8A /* SceneDelegate.swift */,
 				E2BEF78228F59728002ECFC7 /* CollectionViewController.swift */,
-				E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */,
-				E26DB58328F5966A00434A8A /* Main.storyboard */,
-				E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */,
-				E26DB58628F5966B00434A8A /* Assets.xcassets */,
-				E26DB58828F5966B00434A8A /* LaunchScreen.storyboard */,
-				E26DB58B28F5966B00434A8A /* Info.plist */,
+				E2B5933428F5C0CA005041C6 /* ViewControllers */,
+				E2B5933228F5C0B5005041C6 /* Storyboards */,
+				E2B5933328F5C0C1005041C6 /* Extensions */,
+				E2B5933128F5C0AD005041C6 /* Resources */,
+				E2B5933028F5C0A0005041C6 /* Application */,
 			);
 			path = financeapp;
+			sourceTree = "<group>";
+		};
+		E2B5933028F5C0A0005041C6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E26DB57D28F5966A00434A8A /* AppDelegate.swift */,
+				E26DB57F28F5966A00434A8A /* SceneDelegate.swift */,
+				E26DB58B28F5966B00434A8A /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E2B5933128F5C0AD005041C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E26DB58628F5966B00434A8A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2B5933228F5C0B5005041C6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E26DB58328F5966A00434A8A /* Main.storyboard */,
+				E26DB58828F5966B00434A8A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2B5933328F5C0C1005041C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2B5933428F5C0CA005041C6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2C80DE028F5C25200234FD3 /* AddTransaction */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E2C80DE028F5C25200234FD3 /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */,
+				E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */,
+				E2C80DE128F5C26600234FD3 /* SubViews */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		E2C80DE128F5C26600234FD3 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +208,10 @@
 			files = (
 				E2BEF78328F59728002ECFC7 /* CollectionViewController.swift in Sources */,
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
+				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
 				E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */,
 				E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */,
+				E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */,
 				E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +361,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BYFTVC42WF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = financeapp/Info.plist;
+				INFOPLIST_FILE = financeapp/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,7 +389,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BYFTVC42WF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = financeapp/Info.plist;
+				INFOPLIST_FILE = financeapp/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

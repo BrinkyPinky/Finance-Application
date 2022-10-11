@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Finance-->
+        <!--Финансы-->
         <scene sceneID="llJ-0R-DOD">
             <objects>
                 <collectionViewController id="Yzi-Rx-Mbi" customClass="CollectionViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,12 +39,8 @@
                             <outlet property="delegate" destination="Yzi-Rx-Mbi" id="XrI-Ax-Rcu"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Finance" id="7VZ-uf-5DU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r1q-uh-Fgw">
-                            <connections>
-                                <segue destination="HRK-Kv-68W" kind="show" id="uAB-Xa-vby"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Финансы" id="7VZ-uf-5DU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r1q-uh-Fgw"/>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDa-aR-tTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,44 +56,101 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcx-ZF-o9y">
-                                <rect key="frame" x="16" y="107" width="87.666666666666671" height="35.666666666666657"/>
+                                <rect key="frame" x="16" y="63" width="106" height="39.333333333333343"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Income">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Приход">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy5-9q-krs">
-                                <rect key="frame" x="103.66666666666669" y="107" width="103" height="35.666666666666657"/>
+                                <rect key="frame" x="122" y="63" width="101.33333333333331" height="39.333333333333343"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Outcome">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Расход">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                 </buttonConfiguration>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 250.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVl-9v-v61">
-                                <rect key="frame" x="32" y="174.66666666666666" width="326" height="50"/>
+                                <rect key="frame" x="32" y="134.33333333333334" width="326" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6MQ-Of-HSy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="go"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Ulq-Vn-TtW">
-                                <rect key="frame" x="32" y="240.66666666666666" width="326" height="34.333333333333343"/>
+                                <rect key="frame" x="32" y="311.66666666666669" width="326" height="34.333333333333314"/>
+                                <locale key="locale" localeIdentifier="ru_RU"/>
                             </datePicker>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zu0-mk-dMP">
+                                <rect key="frame" x="0.0" y="245.66666666666663" width="390" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EyD-hl-sug"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q6w-5c-CM2">
+                                    <size key="itemSize" width="97" height="49"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="eq9-Z0-j49" customClass="CategoryCollectionViewCell" customModule="financeapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="97" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3gY-gl-cs7">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLH-tp-bqX">
+                                                    <rect key="frame" x="16" y="8" width="65" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ZLH-tp-bqX" secondAttribute="bottom" constant="8" id="76x-8z-dvV"/>
+                                                <constraint firstItem="ZLH-tp-bqX" firstAttribute="leading" secondItem="3gY-gl-cs7" secondAttribute="leading" constant="16" id="8vz-T4-NCc"/>
+                                                <constraint firstItem="ZLH-tp-bqX" firstAttribute="top" secondItem="3gY-gl-cs7" secondAttribute="top" constant="8" id="L8s-yk-NCc"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZLH-tp-bqX" secondAttribute="trailing" constant="16" id="rhV-su-jK9"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="97" height="49"/>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="ZLH-tp-bqX" id="Cz6-Ym-cXp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="HRK-Kv-68W" id="SZH-A7-ohB"/>
+                                    <outlet property="delegate" destination="HRK-Kv-68W" id="n2j-zK-CyY"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-H0-bEU">
+                                <rect key="frame" x="31.999999999999993" y="216.33333333333334" width="112.33333333333331" height="25.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zAa-Ti-A02"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hcx-ZF-o9y" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" constant="16" id="2Lt-dH-oRr"/>
-                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" id="462-pP-IId"/>
+                            <constraint firstItem="IPC-H0-bEU" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="8Tl-0g-hRM"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="Ckw-ew-Pc8"/>
                             <constraint firstItem="LVl-9v-v61" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" constant="32" id="D5K-ja-s2f"/>
-                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="top" secondItem="LVl-9v-v61" secondAttribute="bottom" constant="16" id="Lno-O8-g7z"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" id="JWJ-Yv-qaW"/>
+                            <constraint firstItem="IPC-H0-bEU" firstAttribute="top" secondItem="LVl-9v-v61" secondAttribute="bottom" constant="32" id="Kon-Ia-DdQ"/>
+                            <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="zu0-mk-dMP" secondAttribute="trailing" id="NFD-AO-wm8"/>
                             <constraint firstItem="hcx-ZF-o9y" firstAttribute="top" secondItem="zAa-Ti-A02" secondAttribute="top" constant="16" id="O4N-NH-VQM"/>
-                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="OaM-he-578"/>
                             <constraint firstItem="cy5-9q-krs" firstAttribute="centerY" secondItem="hcx-ZF-o9y" secondAttribute="centerY" id="Zna-ik-JWA"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="top" secondItem="zu0-mk-dMP" secondAttribute="bottom" constant="16" id="aRn-ze-WVU"/>
+                            <constraint firstItem="zu0-mk-dMP" firstAttribute="top" secondItem="IPC-H0-bEU" secondAttribute="bottom" constant="4" id="kLe-Ox-p4P"/>
                             <constraint firstItem="cy5-9q-krs" firstAttribute="leading" secondItem="hcx-ZF-o9y" secondAttribute="trailing" id="klu-EF-ET4"/>
+                            <constraint firstItem="zu0-mk-dMP" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" id="lAa-D5-vhR"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cy5-9q-krs" secondAttribute="trailing" symbolic="YES" id="sTV-F1-asC"/>
                             <constraint firstItem="LVl-9v-v61" firstAttribute="top" secondItem="hcx-ZF-o9y" secondAttribute="bottom" constant="32" id="tCY-rc-FF7"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" constant="32" id="vKR-Ca-MWi"/>
@@ -134,6 +187,9 @@
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
