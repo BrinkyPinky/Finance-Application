@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HRK-Kv-68W">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Finance-->
+        <scene sceneID="llJ-0R-DOD">
+            <objects>
+                <collectionViewController id="Yzi-Rx-Mbi" customClass="CollectionViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GUt-YK-EDd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="phD-aS-lnq">
+                            <size key="itemSize" width="390" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="r4o-On-BqE">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Nmx-iT-uNJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="390" height="128"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Yzi-Rx-Mbi" id="3RV-yB-Uh1"/>
+                            <outlet property="delegate" destination="Yzi-Rx-Mbi" id="XrI-Ax-Rcu"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Finance" id="7VZ-uf-5DU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r1q-uh-Fgw">
+                            <connections>
+                                <segue destination="HRK-Kv-68W" kind="show" id="uAB-Xa-vby"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDa-aR-tTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801.53846153846155" y="-34.123222748815166"/>
+        </scene>
+        <!--Add Transaction View Controller-->
+        <scene sceneID="rHO-z2-QWW">
+            <objects>
+                <viewController id="HRK-Kv-68W" customClass="AddTransactionViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gga-ht-hQX">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcx-ZF-o9y">
+                                <rect key="frame" x="16" y="107" width="87.666666666666671" height="35.666666666666657"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Income">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy5-9q-krs">
+                                <rect key="frame" x="103.66666666666669" y="107" width="103" height="35.666666666666657"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Outcome">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 250.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVl-9v-v61">
+                                <rect key="frame" x="32" y="174.66666666666666" width="326" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6MQ-Of-HSy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="go"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Ulq-Vn-TtW">
+                                <rect key="frame" x="32" y="240.66666666666666" width="326" height="34.333333333333343"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zAa-Ti-A02"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hcx-ZF-o9y" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" constant="16" id="2Lt-dH-oRr"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" id="462-pP-IId"/>
+                            <constraint firstItem="LVl-9v-v61" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" constant="32" id="D5K-ja-s2f"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="top" secondItem="LVl-9v-v61" secondAttribute="bottom" constant="16" id="Lno-O8-g7z"/>
+                            <constraint firstItem="hcx-ZF-o9y" firstAttribute="top" secondItem="zAa-Ti-A02" secondAttribute="top" constant="16" id="O4N-NH-VQM"/>
+                            <constraint firstItem="Ulq-Vn-TtW" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="OaM-he-578"/>
+                            <constraint firstItem="cy5-9q-krs" firstAttribute="centerY" secondItem="hcx-ZF-o9y" secondAttribute="centerY" id="Zna-ik-JWA"/>
+                            <constraint firstItem="cy5-9q-krs" firstAttribute="leading" secondItem="hcx-ZF-o9y" secondAttribute="trailing" id="klu-EF-ET4"/>
+                            <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cy5-9q-krs" secondAttribute="trailing" symbolic="YES" id="sTV-F1-asC"/>
+                            <constraint firstItem="LVl-9v-v61" firstAttribute="top" secondItem="hcx-ZF-o9y" secondAttribute="bottom" constant="32" id="tCY-rc-FF7"/>
+                            <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" constant="32" id="vKR-Ca-MWi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ORA-8r-G1d"/>
+                    <connections>
+                        <outlet property="transactionAmountTextField" destination="LVl-9v-v61" id="T7j-fI-ZYl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXs-nE-Ekl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.6153846153845" y="-34.123222748815166"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sAg-qK-Trd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RTO-ma-esz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="smh-nu-0XE">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yzi-Rx-Mbi" kind="relationship" relationship="rootViewController" id="CgA-4Q-9LB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpc-VK-URj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127.69230769230769" y="-34.123222748815166"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
