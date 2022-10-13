@@ -22,25 +22,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
-        self.contentView.layer.cornerRadius = self.contentView.frame.width/5.5
-        self.contentView.layer.borderWidth = 0.5
-        self.contentView.layer.borderColor = UIColor.opaqueSeparator.cgColor
-//        defaultStyle()
+        self.layer.cornerRadius = self.contentView.frame.width / 5
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.opaqueSeparator.cgColor
         
         let redView = UIView(frame: bounds)
         redView.backgroundColor = .clear
-           self.backgroundView = redView
+        self.backgroundView = redView
 
-           let blueView = UIView(frame: bounds)
+        let blueView = UIView(frame: bounds)
         blueView.backgroundColor = .link
-           self.selectedBackgroundView = blueView
-    }
-    
-    func defaultStyle() {
-        self.contentView.backgroundColor = .clear
-    }
-    
-    func selectedStyle() {
-        self.contentView.backgroundColor = .link
+        self.selectedBackgroundView = blueView
     }
 }

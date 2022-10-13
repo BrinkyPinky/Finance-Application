@@ -10,7 +10,6 @@ import UIKit
 extension UITextField {
     func setUnderLine() {
         borderStyle = .none
-        
         let border = CALayer()
         let width = CGFloat(0.5)
         border.borderColor = UIColor.opaqueSeparator.cgColor
