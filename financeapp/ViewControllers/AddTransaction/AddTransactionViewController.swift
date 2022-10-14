@@ -17,11 +17,9 @@ class AddTransactionViewController: UIViewController {
     @IBOutlet private var outcomeButton: UIButton!
     @IBOutlet private var categoriesCollectionView: UICollectionView!
     @IBOutlet private var transactionCommentTextView: UITextView!
-    private var viewModel: AddTransactionViewModelProtocol!
-    
-    lazy var transactionAmountText = transactionAmountTextField.rx.text.asControlProperty()
     private let datePicker = UIDatePicker()
     
+    private var viewModel: AddTransactionViewModelProtocol!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -48,8 +46,11 @@ class AddTransactionViewController: UIViewController {
         transactionAmountTextField.rx.text.subscribe { [unowned self] stringNumber in
             viewModel.checkForDotsInAmountOfTransaction(&transactionAmountTextField.text)
         }.disposed(by: disposeBag)
+        
         transactionAmountTextField.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]).subscribe { [unowned self] _ in
-            transactionAmountTextField.text = viewModel.formatAmounOfTransactionOnEditingEnd(transactionAmountTextField.text)
+            transactionAmountTextField.text = viewModel.formatAmountOfTransactionOnEditingEnd(
+                transactionAmountTextField.text
+            )
         }.disposed(by: disposeBag)
         
         //collection view insets
@@ -94,7 +95,7 @@ class AddTransactionViewController: UIViewController {
     }
 }
 
-// MARK: Collection View
+// MARK: Categories Collection View
 
 extension AddTransactionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

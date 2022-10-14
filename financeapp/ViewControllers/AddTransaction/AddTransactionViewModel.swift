@@ -17,13 +17,15 @@ protocol AddTransactionViewModelProtocol {
     var outcomingCategories: [String] { get }
     var numberOfItemsInSection: Int { get }
     func checkForDotsInAmountOfTransaction(_ text: inout String?)
-    func formatAmounOfTransactionOnEditingEnd(_ text: String?) -> String
+    func formatAmountOfTransactionOnEditingEnd(_ text: String?) -> String
     func categoryNameForItem(at indexPath: IndexPath) -> String
     func formatDate(_ date: Date?) -> String
 }
 
 class AddTransactionViewModel: AddTransactionViewModelProtocol {
     var currentTransactionType: TransactionsTypes = .income
+    
+    // MARK: Categories
     
     var incomingCategories = [
         "💰 Зарплата",
@@ -37,6 +39,8 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         "💸 Ипотека",
         "💊 Лекарства",
     ]
+    
+    // MARK: Categories collection view gets the data
     
     var numberOfItemsInSection: Int {
         switch currentTransactionType {
@@ -56,6 +60,8 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         }
     }
     
+    // MARK: Checks AmountOfTransaction TextField for additional dots and deletes it if necessary
+    
     func checkForDotsInAmountOfTransaction(_ text: inout String?) {
         guard text?.last == "." else { return }
         
@@ -70,42 +76,11 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         }
     }
     
-    //    func formatAmountOfTransaction(_ text: String?) -> String {
-    //        guard var text else { return "" }
-    //
-    //        if text.last == "." {
-    //            var dotsCounter = 0
-    //            for char in text {
-    //                if char == "." {
-    //                    dotsCounter += 1
-    //                }
-    //            }
-    //            if dotsCounter > 1 {
-    //                text.removeLast()
-    //            }
-    //
-    //            return text
-    //        } else {
-    //            var specifiedText = text
-    //            specifiedText.removeAll(where: { $0 == " " })
-    //            guard let number = Double(specifiedText) else { return text }
-    //            let formatter = NumberFormatter()
-    //            formatter.numberStyle = .decimal
-    //            formatter.locale = Locale(identifier: "ru_RU")
-    //            formatter.decimalSeparator = "."
-    //            let formattedText = formatter.string(from: NSDecimalNumber(string: String(format: "%.02f", number)))
-    //
-    //            return formattedText ?? "0"
-    //        }
-    //    }
+    // MARK: Format AmountOfTransaction TextField when editingDidEnd
     
-    func formatAmounOfTransactionOnEditingEnd(_ text: String?) -> String {
+    func formatAmountOfTransactionOnEditingEnd(_ text: String?) -> String {
         guard let text else { return "Error" }
         guard let number = Double(text) else { return "Error" }
-        
-//        let formattedString = String(format: "%.02f", number)
-        
-//        guard let formattedNumber = Float()
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -113,11 +88,12 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         formatter.decimalSeparator = "."
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
-        
         let formattedText = formatter.string(from: NSNumber(floatLiteral: number))
         
         return formattedText ?? "Error"
     }
+    
+    // MARK: DatePicker Formatter
     
     func formatDate(_ date: Date?) -> String {
         let formatter = DateFormatter()
