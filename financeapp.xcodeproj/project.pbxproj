@@ -11,11 +11,13 @@
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */; };
+		E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */; };
 		E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57D28F5966A00434A8A /* AppDelegate.swift */; };
 		E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57F28F5966A00434A8A /* SceneDelegate.swift */; };
 		E26DB58528F5966A00434A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58328F5966A00434A8A /* Main.storyboard */; };
 		E26DB58728F5966B00434A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58628F5966B00434A8A /* Assets.xcassets */; };
 		E26DB58A28F5966B00434A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58828F5966B00434A8A /* LaunchScreen.storyboard */; };
+		E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C7AE328F97EE3002AA5ED /* CreateCategoryViewModel.swift */; };
 		E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */; };
 		E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */; };
 		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
@@ -32,6 +34,7 @@
 		E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
+		E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryModel.swift; sourceTree = "<group>"; };
 		E26DB57A28F5966A00434A8A /* financeapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = financeapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26DB57D28F5966A00434A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26DB57F28F5966A00434A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		E26DB58628F5966B00434A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E26DB58928F5966B00434A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E26DB58B28F5966B00434A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E27C7AE328F97EE3002AA5ED /* CreateCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewModel.swift; sourceTree = "<group>"; };
 		E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */,
+				E27C7AE328F97EE3002AA5ED /* CreateCategoryViewModel.swift */,
 			);
 			path = CreateCategory;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */,
+				E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,8 +337,10 @@
 			files = (
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
+				E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
+				E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */,
 				E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */,
 				E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */,
 				E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */,

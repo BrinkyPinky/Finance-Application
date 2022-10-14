@@ -11,55 +11,68 @@
     </dependencies>
     <scenes>
         <!--Create Category View Controller-->
-        <scene sceneID="9HJ-QA-taS">
+        <scene sceneID="sob-vG-mTg">
             <objects>
-                <viewController id="RcX-Zy-C9o" customClass="CreateCategoryViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LNP-J0-LgH">
+                <viewController id="qnN-6V-OQz" customClass="CreateCategoryViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Za1-1t-D5p">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-rr-zp9">
-                                <rect key="frame" x="0.0" y="154" width="390" height="656"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kXc-2i-H8v">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="NeG-aJ-1Vj">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Tfu-0l-DMw">
+                                        <rect key="frame" x="20" y="55.333332061767578" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NeG-aJ-1Vj" id="Azt-jC-KtN">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tfu-0l-DMw" id="EtT-7B-DOb">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="RcX-Zy-C9o" id="UoC-ZS-oD4"/>
-                                    <outlet property="delegate" destination="RcX-Zy-C9o" id="Ad8-i2-uvD"/>
-                                </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iCs-QC-0cf">
-                                <rect key="frame" x="129.66666666666666" y="107" width="130.99999999999997" height="32"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="1Ia-OT-iGA"/>
+                        <viewLayoutGuide key="safeArea" id="dmH-uR-cvL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Xsj-rr-zp9" firstAttribute="leading" secondItem="1Ia-OT-iGA" secondAttribute="leading" id="3Hz-mL-FPt"/>
-                            <constraint firstItem="iCs-QC-0cf" firstAttribute="top" secondItem="1Ia-OT-iGA" secondAttribute="top" constant="16" id="EcS-i1-Dsz"/>
-                            <constraint firstItem="1Ia-OT-iGA" firstAttribute="bottom" secondItem="Xsj-rr-zp9" secondAttribute="bottom" id="RE4-SP-DS7"/>
-                            <constraint firstItem="1Ia-OT-iGA" firstAttribute="trailing" secondItem="Xsj-rr-zp9" secondAttribute="trailing" id="XzO-vp-Tld"/>
-                            <constraint firstItem="iCs-QC-0cf" firstAttribute="centerX" secondItem="LNP-J0-LgH" secondAttribute="centerX" id="cOx-x6-BVr"/>
-                            <constraint firstItem="Xsj-rr-zp9" firstAttribute="top" secondItem="iCs-QC-0cf" secondAttribute="bottom" constant="16" id="nj4-qQ-FpD"/>
+                            <constraint firstItem="kXc-2i-H8v" firstAttribute="top" secondItem="dmH-uR-cvL" secondAttribute="top" id="X41-h5-cve"/>
+                            <constraint firstItem="dmH-uR-cvL" firstAttribute="bottom" secondItem="kXc-2i-H8v" secondAttribute="bottom" id="iwr-Fl-eUP"/>
+                            <constraint firstItem="kXc-2i-H8v" firstAttribute="leading" secondItem="dmH-uR-cvL" secondAttribute="leading" id="oGO-WQ-lt8"/>
+                            <constraint firstItem="dmH-uR-cvL" firstAttribute="trailing" secondItem="kXc-2i-H8v" secondAttribute="trailing" id="uCT-28-3pf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="x2e-Zg-TTy"/>
+                    <navigationItem key="navigationItem" id="Mjp-14-Xwm">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0AT-1O-c5l">
+                            <rect key="frame" x="157.66666666666666" y="0.0" width="75" height="34.333333333333336"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                        <centerItemGroups>
+                            <barButtonItemGroup customizationDisposition="fixed" id="USl-M3-sNF">
+                                <barButtonItems>
+                                    <barButtonItem style="plain" id="pvH-Kw-5yF">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xJ2-qg-9aU">
+                                            <rect key="frame" x="-37" y="-17" width="86" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        </button>
+                                    </barButtonItem>
+                                </barButtonItems>
+                            </barButtonItemGroup>
+                        </centerItemGroups>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="wU1-Vs-wj3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="wU1-Vs-wj3" id="ifh-sd-Zg5"/>
+                        <outlet property="tableView" destination="kXc-2i-H8v" id="mvZ-XG-iJZ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UJW-xk-hho" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-cb-uQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2787.6923076923076" y="-749.28909952606637"/>
+            <point key="canvasLocation" x="2752" y="-941"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="rHO-z2-QWW">
@@ -319,7 +332,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="RcX-Zy-C9o" kind="show" identifier="showCreateCategoryViewController" destinationCreationSelector="showCreateCategoryViewController" id="ADO-H8-Kc9"/>
+                        <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="hgw-S7-OSb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5e-VH-hg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
