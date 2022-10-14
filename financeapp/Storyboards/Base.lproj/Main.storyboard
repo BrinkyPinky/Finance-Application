@@ -31,43 +31,58 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPV-Tt-8eY">
+                                <rect key="frame" x="308" y="728" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-Ql-BIv" userLabel="add">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="XBU-Ql-BIv" firstAttribute="top" secondItem="qPV-Tt-8eY" secondAttribute="top" id="6pV-Tc-q4V"/>
+                                    <constraint firstAttribute="bottom" secondItem="XBU-Ql-BIv" secondAttribute="bottom" id="DyI-n5-rgV"/>
+                                    <constraint firstAttribute="width" secondItem="qPV-Tt-8eY" secondAttribute="height" multiplier="1:1" id="YIP-zY-K1l"/>
+                                    <constraint firstAttribute="trailing" secondItem="XBU-Ql-BIv" secondAttribute="trailing" id="gU5-8c-wWt"/>
+                                    <constraint firstAttribute="height" constant="50" id="sJu-gf-MWo"/>
+                                    <constraint firstItem="XBU-Ql-BIv" firstAttribute="leading" secondItem="qPV-Tt-8eY" secondAttribute="leading" id="tdQ-JT-8p8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dmH-uR-cvL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kXc-2i-H8v" firstAttribute="top" secondItem="dmH-uR-cvL" secondAttribute="top" id="X41-h5-cve"/>
+                            <constraint firstItem="dmH-uR-cvL" firstAttribute="bottom" secondItem="qPV-Tt-8eY" secondAttribute="bottom" constant="32" id="YCl-VF-daX"/>
                             <constraint firstItem="dmH-uR-cvL" firstAttribute="bottom" secondItem="kXc-2i-H8v" secondAttribute="bottom" id="iwr-Fl-eUP"/>
                             <constraint firstItem="kXc-2i-H8v" firstAttribute="leading" secondItem="dmH-uR-cvL" secondAttribute="leading" id="oGO-WQ-lt8"/>
                             <constraint firstItem="dmH-uR-cvL" firstAttribute="trailing" secondItem="kXc-2i-H8v" secondAttribute="trailing" id="uCT-28-3pf"/>
+                            <constraint firstItem="dmH-uR-cvL" firstAttribute="trailing" secondItem="qPV-Tt-8eY" secondAttribute="trailing" constant="32" id="wgl-s0-Wjw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mjp-14-Xwm">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0AT-1O-c5l">
-                            <rect key="frame" x="157.66666666666666" y="0.0" width="75" height="34.333333333333336"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
-                        <centerItemGroups>
-                            <barButtonItemGroup customizationDisposition="fixed" id="USl-M3-sNF">
-                                <barButtonItems>
-                                    <barButtonItem style="plain" id="pvH-Kw-5yF">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xJ2-qg-9aU">
-                                            <rect key="frame" x="-37" y="-17" width="86" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        </button>
-                                    </barButtonItem>
-                                </barButtonItems>
-                            </barButtonItemGroup>
-                        </centerItemGroups>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="wU1-Vs-wj3"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="wU1-Vs-wj3"/>
+                            <barButtonItem title="Расход" style="done" id="ihD-vc-tqh">
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            </barButtonItem>
+                            <barButtonItem title="Приход" style="done" id="vdW-00-GS6">
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="XBU-Ql-BIv" id="jCQ-ZC-4u8"/>
                         <outlet property="editButton" destination="wU1-Vs-wj3" id="ifh-sd-Zg5"/>
+                        <outlet property="incomeButton" destination="vdW-00-GS6" id="c6n-Ay-wbm"/>
+                        <outlet property="outcomeButton" destination="ihD-vc-tqh" id="8uX-Ej-FIY"/>
                         <outlet property="tableView" destination="kXc-2i-H8v" id="mvZ-XG-iJZ"/>
+                        <outlet property="viewBackgroundAddButton" destination="qPV-Tt-8eY" id="rXz-nv-R72"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-cb-uQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -360,6 +375,7 @@
     </scenes>
     <resources>
         <image name="command" catalog="system" width="128" height="115"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -377,6 +393,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

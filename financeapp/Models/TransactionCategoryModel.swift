@@ -5,10 +5,19 @@
 //  Created by Егор Шилов on 14.10.2022.
 //
 
-import Foundation
+import RealmSwift
 
-struct TransactionCategoryModel {
-    var id: Int
-    var name: String
-    var isIncome: Bool
+final class TransactionCategoryModel: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var staticID: Int
+    @Persisted var dynamicID: Int //ordered by
+    @Persisted var name: String
+    @Persisted var isIncome: Bool
+
+    convenience init(staticID: Int, dynamicID: Int, name: String, isIncome: Bool) {
+        self.init()
+        self.staticID = staticID
+        self.dynamicID = dynamicID
+        self.name = name
+        self.isIncome = isIncome
+    }
 }
