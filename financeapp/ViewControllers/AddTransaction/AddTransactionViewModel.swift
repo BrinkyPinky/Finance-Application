@@ -5,7 +5,7 @@
 //  Created by Егор Шилов on 11.10.2022.
 //
 
-import Foundation
+import CoreData
 
 enum TransactionsTypes {
     case income, outcome
@@ -13,36 +13,44 @@ enum TransactionsTypes {
 
 protocol AddTransactionViewModelProtocol {
     var currentTransactionType: TransactionsTypes { get set }
-    var incomingCategories: [String] { get }
-    var outcomingCategories: [String] { get }
-    var numberOfItemsInSection: Int { get }
+    var incomingCategories: [Categories] { get }
+    var outcomingCategories: [Categories] { get }
+    init(viewController: AddTransactionViewControllerDelegate)
     func checkForDotsInAmountOfTransaction(_ text: inout String?)
     func formatAmountOfTransactionOnEditingEnd(_ text: String?) -> String
     func categoryNameForItem(at indexPath: IndexPath) -> String
+    func numberOfItemsInSection() -> Int
     func formatDate(_ date: Date?) -> String
 }
 
 class AddTransactionViewModel: AddTransactionViewModelProtocol {
-    var currentTransactionType: TransactionsTypes = .income
+    unowned var viewController: AddTransactionViewControllerDelegate!
     
+    var currentTransactionType: TransactionsTypes = .income
+
     // MARK: Categories
     
-    var incomingCategories = [
-        "💰 Зарплата",
-        "🤑 Бонус",
-        "📊 Инвестиции"
-    ]
-    var outcomingCategories = [
-        "🥬 Продукты",
-        "💳 Перевод",
-        "🚗 Автомобиль",
-        "💸 Ипотека",
-        "💊 Лекарства",
-    ]
+    var incomingCategories: [Categories] = []
+    
+    var outcomingCategories: [Categories] = []
+    
+    
+    required init(viewController: AddTransactionViewControllerDelegate) {
+        self.viewController = viewController
+        let fetchRequest = NSFetchRequest<Categories>(entityName: "Categories")
+        
+        incomingCategories = try! viewController.context.fetch(fetchRequest)
+            .filter({ $0.isIncome == true })
+            .sorted(by: { $0.orderID < $1.orderID })
+        
+        outcomingCategories = try! viewController.context.fetch(fetchRequest)
+            .filter({ $0.isIncome == false })
+            .sorted(by: { $0.orderID < $1.orderID })
+    }
     
     // MARK: Categories collection view gets the data
-    
-    var numberOfItemsInSection: Int {
+
+    func numberOfItemsInSection() -> Int {
         switch currentTransactionType {
         case .income:
             return incomingCategories.count
@@ -54,9 +62,9 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
     func categoryNameForItem(at indexPath: IndexPath) -> String {
         switch currentTransactionType {
         case .income:
-            return incomingCategories[indexPath.row]
+            return incomingCategories[indexPath.row].name!
         case .outcome:
-            return outcomingCategories[indexPath.row]
+            return outcomingCategories[indexPath.row].name!
         }
     }
     

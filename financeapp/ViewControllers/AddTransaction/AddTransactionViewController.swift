@@ -8,8 +8,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreData
 
-class AddTransactionViewController: UIViewController {
+protocol AddTransactionViewControllerDelegate: AnyObject {
+    var context: NSManagedObjectContext { get }
+}
+
+class AddTransactionViewController: UIViewController, AddTransactionViewControllerDelegate {
     
     @IBOutlet private var transactionAmountTextField: UITextField!
     @IBOutlet private var dateTextField: UITextField!
@@ -22,9 +27,11 @@ class AddTransactionViewController: UIViewController {
     private var viewModel: AddTransactionViewModelProtocol!
     private let disposeBag = DisposeBag()
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AddTransactionViewModel()
+        viewModel = AddTransactionViewModel(viewController: self)
         setup()
     }
     
@@ -99,7 +106,7 @@ class AddTransactionViewController: UIViewController {
 
 extension AddTransactionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection
+        viewModel.numberOfItemsInSection()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

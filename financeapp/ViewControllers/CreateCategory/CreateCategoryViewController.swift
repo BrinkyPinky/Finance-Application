@@ -39,7 +39,7 @@ class CreateCategoryViewController: UIViewController, CreateCategoryViewControll
     //table view dataSource
     private let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionCategoryModel> { dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(item.name ?? "NO NAME")"
+        cell.textLabel?.text = "\(item.name!)"
         return cell
     } titleForHeaderInSection: { dataSource, index in
         return dataSource.sectionModels[index].header
@@ -159,6 +159,5 @@ class CreateCategoryViewController: UIViewController, CreateCategoryViewControll
                         )
                     }
             }
-        
     }
 }

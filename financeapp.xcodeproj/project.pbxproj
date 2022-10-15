@@ -11,7 +11,6 @@
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */; };
-		E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */; };
 		E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57D28F5966A00434A8A /* AppDelegate.swift */; };
 		E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57F28F5966A00434A8A /* SceneDelegate.swift */; };
 		E26DB58528F5966A00434A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58328F5966A00434A8A /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 		E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
-		E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryModel.swift; sourceTree = "<group>"; };
 		E26DB57A28F5966A00434A8A /* financeapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = financeapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26DB57D28F5966A00434A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26DB57F28F5966A00434A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */,
-				E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,7 +345,6 @@
 			files = (
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
-				E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
 				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
