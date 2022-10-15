@@ -52,6 +52,11 @@
                                     <constraint firstItem="XBU-Ql-BIv" firstAttribute="leading" secondItem="qPV-Tt-8eY" secondAttribute="leading" id="tdQ-JT-8p8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mkq-1f-9Jq">
+                                <rect key="frame" x="108" y="716" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dmH-uR-cvL"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
@@ -83,11 +88,12 @@
                         <outlet property="outcomeButton" destination="ihD-vc-tqh" id="8uX-Ej-FIY"/>
                         <outlet property="tableView" destination="kXc-2i-H8v" id="mvZ-XG-iJZ"/>
                         <outlet property="viewBackgroundAddButton" destination="qPV-Tt-8eY" id="rXz-nv-R72"/>
+                        <outlet property="viewBackgroundCustomAlert" destination="Mkq-1f-9Jq" id="Qo5-GD-cnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-cb-uQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2752" y="-941"/>
+            <point key="canvasLocation" x="2750.7692307692305" y="-941.23222748815158"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="rHO-z2-QWW">
@@ -393,6 +399,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

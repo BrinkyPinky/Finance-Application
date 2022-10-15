@@ -12,7 +12,6 @@ class MainScreenTableViewController: UITableViewController {
     @IBOutlet private var sideMenuView: SideMenuView!
     
     override func viewDidLoad() {
-        
         //side menu
         sideMenuView = SideMenuView(mainScreenVC: self, frame: CGRect(
             x: -view.frame.width/1.5,

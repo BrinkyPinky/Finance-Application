@@ -12,7 +12,6 @@
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */; };
 		E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */; };
-		E25E3A8228F9E45E00C15CE4 /* CategoriesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E3A8128F9E45E00C15CE4 /* CategoriesDataManager.swift */; };
 		E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57D28F5966A00434A8A /* AppDelegate.swift */; };
 		E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57F28F5966A00434A8A /* SceneDelegate.swift */; };
 		E26DB58528F5966A00434A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58328F5966A00434A8A /* Main.storyboard */; };
@@ -24,6 +23,7 @@
 		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
 		E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB431428F9265F001FE45B /* SideMenuView.swift */; };
 		E2DB478728F9363A001FE45B /* SideMenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */; };
+		E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */; };
 		E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */; };
 		E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,6 @@
 		E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		E22CB78928F8DF5C00B1F648 /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
 		E251166D28F98B2F006546E7 /* TransactionCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryModel.swift; sourceTree = "<group>"; };
-		E25E3A8128F9E45E00C15CE4 /* CategoriesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDataManager.swift; sourceTree = "<group>"; };
 		E26DB57A28F5966A00434A8A /* financeapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = financeapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26DB57D28F5966A00434A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26DB57F28F5966A00434A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		E2DB431428F9265F001FE45B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellModel.swift; sourceTree = "<group>"; };
+		E2E156B928FAC8EB009DD2B2 /* Categories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Categories.xcdatamodel; sourceTree = "<group>"; };
 		E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +104,6 @@
 		E25E3A7F28F9E44500C15CE4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E25E3A8128F9E45E00C15CE4 /* CategoriesDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 				E2B5933328F5C0C1005041C6 /* Extensions */,
 				E2B5933128F5C0AD005041C6 /* Resources */,
 				E2B5933028F5C0A0005041C6 /* Application */,
+				E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */,
 			);
 			path = financeapp;
 			sourceTree = "<group>";
@@ -351,12 +351,12 @@
 				E251166E28F98B2F006546E7 /* TransactionCategoryModel.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenTableViewController.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
+				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
 				E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */,
 				E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */,
 				E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */,
 				E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */,
 				E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */,
-				E25E3A8228F9E45E00C15CE4 /* CategoriesDataManager.swift in Sources */,
 				E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */,
 				E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */,
 				E2DB478728F9363A001FE45B /* SideMenuCellModel.swift in Sources */,
@@ -582,6 +582,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2E156B928FAC8EB009DD2B2 /* Categories.xcdatamodel */,
+			);
+			currentVersion = E2E156B928FAC8EB009DD2B2 /* Categories.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E26DB57228F5966A00434A8A /* Project object */;
 }
