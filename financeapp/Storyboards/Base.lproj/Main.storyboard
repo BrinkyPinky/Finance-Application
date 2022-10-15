@@ -52,17 +52,34 @@
                                     <constraint firstItem="XBU-Ql-BIv" firstAttribute="leading" secondItem="qPV-Tt-8eY" secondAttribute="leading" id="tdQ-JT-8p8"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mkq-1f-9Jq">
-                                <rect key="frame" x="108" y="716" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkq-1f-9Jq">
+                                <rect key="frame" x="32" y="385.66666666666669" width="326" height="72.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не можете добавить более 50 категорий" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiK-N2-fpT">
+                                        <rect key="frame" x="16" y="15.999999999999996" width="294" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstItem="iiK-N2-fpT" firstAttribute="leading" secondItem="Mkq-1f-9Jq" secondAttribute="leading" constant="16" id="Hrp-dO-d14"/>
+                                    <constraint firstAttribute="bottom" secondItem="iiK-N2-fpT" secondAttribute="bottom" constant="16" id="XEZ-cM-fA6"/>
+                                    <constraint firstAttribute="trailing" secondItem="iiK-N2-fpT" secondAttribute="trailing" constant="16" id="avB-9P-DWz"/>
+                                    <constraint firstItem="iiK-N2-fpT" firstAttribute="top" secondItem="Mkq-1f-9Jq" secondAttribute="top" constant="16" id="dl9-uY-Cam"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dmH-uR-cvL"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Mkq-1f-9Jq" firstAttribute="centerX" secondItem="Za1-1t-D5p" secondAttribute="centerX" id="55r-Wx-S0v"/>
+                            <constraint firstItem="Mkq-1f-9Jq" firstAttribute="centerY" secondItem="Za1-1t-D5p" secondAttribute="centerY" id="JaW-U5-RLQ"/>
                             <constraint firstItem="kXc-2i-H8v" firstAttribute="top" secondItem="dmH-uR-cvL" secondAttribute="top" id="X41-h5-cve"/>
+                            <constraint firstItem="dmH-uR-cvL" firstAttribute="trailing" secondItem="Mkq-1f-9Jq" secondAttribute="trailing" constant="32" id="XMT-9y-pbR"/>
                             <constraint firstItem="dmH-uR-cvL" firstAttribute="bottom" secondItem="qPV-Tt-8eY" secondAttribute="bottom" constant="32" id="YCl-VF-daX"/>
+                            <constraint firstItem="Mkq-1f-9Jq" firstAttribute="leading" secondItem="dmH-uR-cvL" secondAttribute="leading" constant="32" id="bXp-3I-O2T"/>
                             <constraint firstItem="dmH-uR-cvL" firstAttribute="bottom" secondItem="kXc-2i-H8v" secondAttribute="bottom" id="iwr-Fl-eUP"/>
                             <constraint firstItem="kXc-2i-H8v" firstAttribute="leading" secondItem="dmH-uR-cvL" secondAttribute="leading" id="oGO-WQ-lt8"/>
                             <constraint firstItem="dmH-uR-cvL" firstAttribute="trailing" secondItem="kXc-2i-H8v" secondAttribute="trailing" id="uCT-28-3pf"/>

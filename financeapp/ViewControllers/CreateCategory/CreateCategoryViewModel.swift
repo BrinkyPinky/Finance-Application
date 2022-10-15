@@ -78,12 +78,8 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
         guard let name else { return }
         guard var sections = try? sections.value() else { return }
         
-        guard sections[0].items.count < 5 else {
-            viewController.showAlert(
-                isTextFieldNeeded: false,
-                title: "Ошибка",
-                message: "Вы не можете создать более 50 категорий"
-            )
+        guard sections[0].items.count < 50 else {
+            viewController.showCustomAlert()
             return
         }
         
