@@ -34,6 +34,8 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
         cell.transactionModel = item
         print(indexPath)
         return cell as! UITableViewCell
+    } titleForHeaderInSection: { dataSource, index in
+        dataSource.sectionModels[index].header
     }
 
     

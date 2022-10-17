@@ -36,7 +36,10 @@ class TransactionTableViewCell: UITableViewCell, TransactionTableViewCellReprese
         
         transactionAmountLabel.text = transactionModel.amount
         transactionCategoryLabel.text = transactionModel.category
-        transactionDateLabel.text = transactionModel.date?.description
         transactionTypeView.backgroundColor = transactionModel.isIncome ? .systemRed : .systemGreen
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        transactionDateLabel.text = dateFormatter.string(from: transactionModel.date!)
     }
 }

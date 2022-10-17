@@ -12,15 +12,16 @@ import CoreData
 
 // MARK: Sections for tableview
 struct SectionOfTransactionModel {
-  var items: [Item]
+    var header: String
+    var items: [Item]
 }
 extension SectionOfTransactionModel: SectionModelType {
-  typealias Item = Transaction
-
-   init(original: SectionOfTransactionModel, items: [Item]) {
-    self = original
-    self.items = items
-  }
+    typealias Item = Transaction
+    
+    init(original: SectionOfTransactionModel, items: [Item]) {
+        self = original
+        self.items = items
+    }
 }
 
 // MARK: Delegate
@@ -50,8 +51,8 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     
     // MARK: GetSections Method
     private func getSections() {
-//        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
-//        let transactions = (try? viewController.context.fetch(fetchRequest))!
+        //        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
+        //        let transactions = (try? viewController.context.fetch(fetchRequest))!
         
         let transaction = Transaction(context: viewController.context)
         transaction.isIncome = true
@@ -60,6 +61,6 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
         transaction.date = Date()
         transaction.isIncome = false
         
-        sections.onNext([SectionOfTransactionModel(items: [transaction])])
+        sections.onNext([SectionOfTransactionModel(header: "21.09.2002", items: [transaction])])
     }
 }

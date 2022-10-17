@@ -36,6 +36,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBU-Ql-BIv" userLabel="add">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XBU-Ql-BIv" secondAttribute="height" multiplier="1:1" id="eJi-qq-g8A"/>
+                                        </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="plus" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
@@ -72,7 +75,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dmH-uR-cvL"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mkq-1f-9Jq" firstAttribute="centerX" secondItem="Za1-1t-D5p" secondAttribute="centerX" id="55r-Wx-S0v"/>
                             <constraint firstItem="Mkq-1f-9Jq" firstAttribute="centerY" secondItem="Za1-1t-D5p" secondAttribute="centerY" id="JaW-U5-RLQ"/>
@@ -223,6 +226,18 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfe-Pm-hhF">
+                                <rect key="frame" x="271" y="20" width="103" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Отменить"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-Se-ShV">
+                                <rect key="frame" x="32" y="516.66666666666663" width="326" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zMP-xj-gfq"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="filled" title="Сохранить" cornerStyle="medium"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zAa-Ti-A02"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,6 +246,7 @@
                             <constraint firstItem="TuG-UT-U8X" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="48R-x0-TdB"/>
                             <constraint firstItem="OOZ-90-Lyi" firstAttribute="top" secondItem="jrp-wa-x8X" secondAttribute="bottom" constant="8" id="4mf-5K-SWr"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jrp-wa-x8X" secondAttribute="trailing" symbolic="YES" id="6bl-H9-nDZ"/>
+                            <constraint firstItem="wfe-Pm-hhF" firstAttribute="firstBaseline" secondItem="cy5-9q-krs" secondAttribute="firstBaseline" id="7tz-Mj-aep"/>
                             <constraint firstItem="IPC-H0-bEU" firstAttribute="leading" secondItem="LVl-9v-v61" secondAttribute="leading" id="8Tl-0g-hRM"/>
                             <constraint firstItem="TuG-UT-U8X" firstAttribute="top" secondItem="LVl-9v-v61" secondAttribute="bottom" constant="16" id="Bif-hB-Wfg"/>
                             <constraint firstItem="LVl-9v-v61" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" constant="32" id="D5K-ja-s2f"/>
@@ -239,13 +255,17 @@
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="zu0-mk-dMP" secondAttribute="trailing" id="NFD-AO-wm8"/>
                             <constraint firstItem="hcx-ZF-o9y" firstAttribute="top" secondItem="zAa-Ti-A02" secondAttribute="top" constant="16" id="O4N-NH-VQM"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IPC-H0-bEU" secondAttribute="trailing" symbolic="YES" id="OHh-JZ-RWc"/>
+                            <constraint firstItem="tHn-Se-ShV" firstAttribute="trailing" secondItem="OOZ-90-Lyi" secondAttribute="trailing" id="Syn-pQ-OJ6"/>
                             <constraint firstItem="TuG-UT-U8X" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" id="abZ-lO-B1P"/>
+                            <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="wfe-Pm-hhF" secondAttribute="trailing" constant="16" id="ahN-cE-cvl"/>
                             <constraint firstItem="OOZ-90-Lyi" firstAttribute="leading" secondItem="jrp-wa-x8X" secondAttribute="leading" id="dCt-Tx-Ldh"/>
+                            <constraint firstItem="tHn-Se-ShV" firstAttribute="top" secondItem="OOZ-90-Lyi" secondAttribute="bottom" constant="16" id="eg5-Kj-zR5"/>
                             <constraint firstItem="zu0-mk-dMP" firstAttribute="top" secondItem="IPC-H0-bEU" secondAttribute="bottom" constant="4" id="kLe-Ox-p4P"/>
                             <constraint firstItem="cy5-9q-krs" firstAttribute="leading" secondItem="hcx-ZF-o9y" secondAttribute="trailing" constant="16" id="klu-EF-ET4"/>
                             <constraint firstItem="zu0-mk-dMP" firstAttribute="leading" secondItem="zAa-Ti-A02" secondAttribute="leading" id="lAa-D5-vhR"/>
                             <constraint firstItem="cy5-9q-krs" firstAttribute="firstBaseline" secondItem="hcx-ZF-o9y" secondAttribute="firstBaseline" id="lwR-b5-zJD"/>
                             <constraint firstItem="jrp-wa-x8X" firstAttribute="leading" secondItem="IPC-H0-bEU" secondAttribute="leading" id="mUX-NU-ej9"/>
+                            <constraint firstItem="tHn-Se-ShV" firstAttribute="leading" secondItem="OOZ-90-Lyi" secondAttribute="leading" id="rla-BA-DxT"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cy5-9q-krs" secondAttribute="trailing" symbolic="YES" id="sTV-F1-asC"/>
                             <constraint firstItem="LVl-9v-v61" firstAttribute="top" secondItem="hcx-ZF-o9y" secondAttribute="bottom" constant="32" id="tCY-rc-FF7"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" constant="32" id="vKR-Ca-MWi"/>
@@ -291,7 +311,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="9RB-Lz-k9V" secondAttribute="trailing" constant="16" id="6QY-on-3Eo"/>
                                         <constraint firstItem="9RB-Lz-k9V" firstAttribute="top" secondItem="E1e-Bn-Cmj" secondAttribute="top" constant="16" id="P5L-Fu-5yH"/>
@@ -359,7 +379,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Yf-Bw-P8v"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Yf-Bw-P8v" firstAttribute="trailing" secondItem="zGc-w4-Jn9" secondAttribute="trailing" id="BCs-GC-rcf"/>
                             <constraint firstAttribute="bottom" secondItem="zGc-w4-Jn9" secondAttribute="bottom" id="j9K-f9-NMS"/>
@@ -424,17 +444,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
