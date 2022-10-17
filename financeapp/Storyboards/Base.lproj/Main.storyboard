@@ -344,6 +344,7 @@
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dk6-6q-NJx" secondAttribute="trailing" constant="20" symbolic="YES" id="vLo-kJ-q9L"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="transactionAmountLabel" destination="Dk6-6q-NJx" id="qjC-RQ-yam"/>
                                     <outlet property="transactionCategoryLabel" destination="0hm-6O-dGP" id="Qc8-1B-0VR"/>
@@ -358,16 +359,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Финансы" id="OIJ-xU-kX0">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="command" catalog="system" id="979-yG-SbO">
-                            <connections>
-                                <action selector="sideMenuButtonTapped:" destination="D0o-Bl-phV" id="Pdg-Wd-abL"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Luj-Rb-EML">
-                            <connections>
-                                <segue destination="HRK-Kv-68W" kind="presentation" id="lI1-WF-GQX"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Luj-Rb-EML">
+                                <connections>
+                                    <segue destination="HRK-Kv-68W" kind="presentation" id="lI1-WF-GQX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="command" catalog="system" id="979-yG-SbO">
+                                <connections>
+                                    <action selector="sideMenuButtonTapped:" destination="D0o-Bl-phV" id="Pdg-Wd-abL"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="hgw-S7-OSb"/>

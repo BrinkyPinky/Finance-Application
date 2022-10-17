@@ -62,16 +62,8 @@ class SideMenuView: UIView, SideMenuViewDelegate {
     // MARK: Perform Segue With Storybord ID
     
     private func performSegueWith(identifier: String) {
-        UIView.animate(
-            withDuration: 0.4,
-            delay: 0,
-            usingSpringWithDamping: 50,
-            initialSpringVelocity: 0,
-            options: .curveEaseOut) {
-                self.frame.origin.x -= self.frame.width
-            }
-        
-        self.mainScreenVC.performSegue(withIdentifier: identifier, sender: nil)
+        mainScreenVC.moveSideMenu(isDisplayed: true)
+        mainScreenVC.performSegue(withIdentifier: identifier, sender: nil)
     }
 }
 
