@@ -11,7 +11,7 @@ import RxDataSources
 // MARK: Delegate
 
 protocol SideMenuViewDelegate {
-    init(mainScreenVC: MainScreenTableViewController, frame: CGRect)
+    init(mainScreenVC: MainScreenViewController, frame: CGRect)
     func setup()
 }
 
@@ -29,11 +29,11 @@ class SideMenuView: UIView, SideMenuViewDelegate {
         )
     ]
     
-    unowned var mainScreenVC: MainScreenTableViewController!
+    unowned var mainScreenVC: MainScreenViewController!
     
     // MARK: Init
     
-    required init(mainScreenVC: MainScreenTableViewController, frame: CGRect) {
+    required init(mainScreenVC: MainScreenViewController, frame: CGRect) {
         super.init(frame: frame)
         self.mainScreenVC = mainScreenVC
     }

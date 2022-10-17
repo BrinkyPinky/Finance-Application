@@ -17,11 +17,14 @@ class TransactionTableViewCell: UITableViewCell, TransactionTableViewCellReprese
     @IBOutlet private var transactionDateLabel: UILabel!
     @IBOutlet private var transactionTypeView: UIView!
     
-    var transactionModel: Transaction!
+    var transactionModel: Transaction! {
+        didSet {
+            setup()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -24,15 +24,15 @@ extension SectionOfTransactionModel: SectionModelType {
 }
 
 // MARK: Delegate
-protocol MainScreenTableViewModelProtocol {
+protocol MainScreenViewModelProtocol {
     var isSideMenuDisplayed: Bool { get set }
     var gesturePanBeginingPosition: CGFloat { get set }
     var sections: BehaviorSubject<[SectionOfTransactionModel]> { get }
-    init(_ viewController: MainScreeTableViewControllerDelegate)
+    init(_ viewController: MainScreenViewControllerDelegate)
 }
 
 // MARK: ViewModel
-class MainScreenTableViewModel: MainScreenTableViewModelProtocol {
+class MainScreenViewModel: MainScreenViewModelProtocol {
     //sideMenu
     var isSideMenuDisplayed: Bool = false
     var gesturePanBeginingPosition: CGFloat = 500
@@ -40,17 +40,18 @@ class MainScreenTableViewModel: MainScreenTableViewModelProtocol {
     //tableView Sections
     var sections = BehaviorSubject<[SectionOfTransactionModel]>(value: [])
     
-    unowned var viewController: MainScreeTableViewControllerDelegate!
+    unowned var viewController: MainScreenViewControllerDelegate!
     
     // MARK: Init
-    required init(_ viewController: MainScreeTableViewControllerDelegate) {
+    required init(_ viewController: MainScreenViewControllerDelegate) {
         self.viewController = viewController
+        getSections()
     }
     
     // MARK: GetSections Method
     private func getSections() {
-        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
-        let transactions = (try? viewController.context.fetch(fetchRequest))!
+//        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
+//        let transactions = (try? viewController.context.fetch(fetchRequest))!
         
         let transaction = Transaction(context: viewController.context)
         transaction.isIncome = true

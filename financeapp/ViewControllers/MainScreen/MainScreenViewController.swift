@@ -12,14 +12,16 @@ import RxGesture
 import RxDataSources
 import CoreData
 
-protocol MainScreeTableViewControllerDelegate: AnyObject {
+protocol MainScreenViewControllerDelegate: AnyObject {
     var context: NSManagedObjectContext { get }
 }
 
-class MainScreenTableViewController: UITableViewController, MainScreeTableViewControllerDelegate {
-    @IBOutlet private var sideMenuView: SideMenuView!
-    private var viewModel: MainScreenTableViewModelProtocol!
+class MainScreenViewController: UIViewController, MainScreenViewControllerDelegate {
+    private var viewModel: MainScreenViewModelProtocol!
     
+    @IBOutlet var tableView: UITableView!
+    private var sideMenuView: SideMenuView!
+
     //coreData Context
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -30,6 +32,7 @@ class MainScreenTableViewController: UITableViewController, MainScreeTableViewCo
     let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionModel> { dataSource, tableView, indexPath, item in
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCellRepresentable
         cell.transactionModel = item
+        print(indexPath)
         return cell as! UITableViewCell
     }
 
@@ -73,12 +76,13 @@ class MainScreenTableViewController: UITableViewController, MainScreeTableViewCo
 
 // MARK: Setup
 
-extension MainScreenTableViewController {
+extension MainScreenViewController {
     func setup() {
-        viewModel = MainScreenTableViewModel(self)
+        viewModel = MainScreenViewModel(self)
         
-        //CollectionView Elements
-        rx.collectio
+        //tableView
+        viewModel.sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        tableView.rx.rowHeight.onNext(85)
         
         //side menu
         sideMenuView = SideMenuView(mainScreenVC: self, frame: CGRect(
@@ -131,32 +135,8 @@ extension MainScreenTableViewController {
     }
 }
 
-
-// MARK: - Table view data source
-
-//extension MainScreenTableViewController {
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        2
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        2
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
-//
-//        return cell
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        85
-//    }
-//
-//    //deleting
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//        }
-//    }
-//}
+extension MainScreenViewController {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        85
+    }
+}
