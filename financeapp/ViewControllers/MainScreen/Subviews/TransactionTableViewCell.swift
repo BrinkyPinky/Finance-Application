@@ -7,12 +7,17 @@
 
 import UIKit
 
-class TransactionTableViewCell: UITableViewCell {
+protocol TransactionTableViewCellRepresentable {
+    var transactionModel: Transaction! { get set }
+}
 
-    @IBOutlet var transactionAmountLabel: UILabel!
-    @IBOutlet var transactionCategoryLabel: UILabel!
-    @IBOutlet var transactionDateLabel: UILabel!
-    @IBOutlet var transactionTypeView: UIView!
+class TransactionTableViewCell: UITableViewCell, TransactionTableViewCellRepresentable {
+    @IBOutlet private var transactionAmountLabel: UILabel!
+    @IBOutlet private var transactionCategoryLabel: UILabel!
+    @IBOutlet private var transactionDateLabel: UILabel!
+    @IBOutlet private var transactionTypeView: UIView!
+    
+    var transactionModel: Transaction!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +30,10 @@ class TransactionTableViewCell: UITableViewCell {
     
     private func setup() {
         transactionTypeView.layer.cornerRadius = transactionTypeView.frame.width / 2
+        
+        transactionAmountLabel.text = transactionModel.amount
+        transactionCategoryLabel.text = transactionModel.category
+        transactionDateLabel.text = transactionModel.date?.description
+        transactionTypeView.backgroundColor = transactionModel.isIncome ? .systemRed : .systemGreen
     }
 }

@@ -37,7 +37,7 @@ class CreateCategoryViewController: UIViewController, CreateCategoryViewControll
     var context = ((UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext)!
     
     //table view dataSource
-    private let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionCategoryModel> { dataSource, tableView, indexPath, item in
+    private let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCategoryModel> { dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "\(item.name!)"
         return cell

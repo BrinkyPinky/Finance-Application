@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import RxDataSources
+
+// MARK: Delegate
 
 protocol SideMenuViewDelegate {
     init(mainScreenVC: MainScreenTableViewController, frame: CGRect)
     func setup()
 }
+
+// MARK: SideMenuView
 
 class SideMenuView: UIView, SideMenuViewDelegate {
     
@@ -26,7 +31,7 @@ class SideMenuView: UIView, SideMenuViewDelegate {
     
     unowned var mainScreenVC: MainScreenTableViewController!
     
-    // MARK: Initialize
+    // MARK: Init
     
     required init(mainScreenVC: MainScreenTableViewController, frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +45,7 @@ class SideMenuView: UIView, SideMenuViewDelegate {
     // MARK: Setup
     
     func setup() {
+        //tableView
         self.backgroundColor = .systemBackground
         let tableView = UITableView()
         self.addSubview(tableView)
@@ -52,10 +58,8 @@ class SideMenuView: UIView, SideMenuViewDelegate {
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ].forEach({ $0.isActive = true })
         
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
     }
     

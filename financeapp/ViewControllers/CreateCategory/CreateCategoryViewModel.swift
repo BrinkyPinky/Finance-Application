@@ -11,15 +11,15 @@ import RxSwift
 import CoreData
 
 //
-struct SectionOfTransactionCategoryModel {
+struct SectionOfCategoryModel {
     var header: String
     var items: [Item]
 }
 
-extension SectionOfTransactionCategoryModel: SectionModelType {
+extension SectionOfCategoryModel: SectionModelType {
     typealias Item = Categories
     
-    init(original: SectionOfTransactionCategoryModel, items: [Item]) {
+    init(original: SectionOfCategoryModel, items: [Item]) {
         self = original
         self.items = items
     }
@@ -27,7 +27,7 @@ extension SectionOfTransactionCategoryModel: SectionModelType {
 
 //protocol for ViewController
 protocol CreateCategoryViewModelProtocol {
-    var sections: BehaviorSubject<[SectionOfTransactionCategoryModel]> { get }
+    var sections: BehaviorSubject<[SectionOfCategoryModel]> { get }
     var isCurrentTypeIncome: Bool { get set }
     init(_ viewController: CreateCategoryViewControllerDelegate)
     func appendNewCategory(name: String?)
@@ -42,9 +42,10 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
         }
     }
     
-    var sections = BehaviorSubject<[SectionOfTransactionCategoryModel]>(value: [])
+    var sections = BehaviorSubject<[SectionOfCategoryModel]>(value: [])
     unowned var viewController: CreateCategoryViewControllerDelegate!
     
+    // MARK: Init
     required init(_ viewController: CreateCategoryViewControllerDelegate) {
         self.viewController = viewController
         getSections()
@@ -57,7 +58,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
         
         do {
             sections.onNext([
-                SectionOfTransactionCategoryModel(
+                SectionOfCategoryModel(
                     header: hederTitle,
                     items: try viewController.context.fetch(fetchRequest)
                         .filter({ $0.isIncome == isCurrentTypeIncome })
@@ -66,7 +67,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
             ])
         } catch {
             print("error occured with getting categories")
-            sections.onNext([SectionOfTransactionCategoryModel(
+            sections.onNext([SectionOfCategoryModel(
                 header: hederTitle,
                 items: [])])
         }

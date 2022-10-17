@@ -9,16 +9,76 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import RxDataSources
+import CoreData
 
-class MainScreenTableViewController: UITableViewController {
-    
+protocol MainScreeTableViewControllerDelegate: AnyObject {
+    var context: NSManagedObjectContext { get }
+}
+
+class MainScreenTableViewController: UITableViewController, MainScreeTableViewControllerDelegate {
     @IBOutlet private var sideMenuView: SideMenuView!
     private var viewModel: MainScreenTableViewModelProtocol!
     
+    //coreData Context
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //disposeBag
     private let disposeBag = DisposeBag()
     
+    //tableView DataSource
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionModel> { dataSource, tableView, indexPath, item in
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCellRepresentable
+        cell.transactionModel = item
+        return cell as! UITableViewCell
+    }
+
+    
+    // MARK: View LifeCycle
     override func viewDidLoad() {
-        viewModel = MainScreenTableViewModel()
+        setup()
+    }
+    
+    // MARK: Side Menu Button Tapped Action
+    @IBAction private func sideMenuButtonTapped(_ sender: Any) {
+        moveSideMenu(isDisplayed: viewModel.isSideMenuDisplayed)
+    }
+    
+    // MARK: Show or Hide Side Menu Method
+    func moveSideMenu(isDisplayed: Bool) {
+        guard !isDisplayed else {
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0,
+                usingSpringWithDamping: 50,
+                initialSpringVelocity: 0,
+                options: .curveEaseInOut) {
+                    self.sideMenuView.frame.origin.x = -self.view.frame.width/1.5
+                }
+            viewModel.isSideMenuDisplayed = false
+            return
+        }
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            usingSpringWithDamping: 50,
+            initialSpringVelocity: 0,
+            options: .curveEaseInOut) {
+                self.sideMenuView.frame.origin.x = 0
+            }
+        viewModel.isSideMenuDisplayed = true
+    }
+}
+
+// MARK: Setup
+
+extension MainScreenTableViewController {
+    func setup() {
+        viewModel = MainScreenTableViewModel(self)
+        
+        //CollectionView Elements
+        rx.collectio
         
         //side menu
         sideMenuView = SideMenuView(mainScreenVC: self, frame: CGRect(
@@ -69,63 +129,34 @@ class MainScreenTableViewController: UITableViewController {
             }
         }.disposed(by: disposeBag)
     }
-    
-    @IBAction private func sideMenuButtonTapped(_ sender: Any) {
-        moveSideMenu(isDisplayed: viewModel.isSideMenuDisplayed)
-    }
-    
-    func moveSideMenu(isDisplayed: Bool) {
-        guard !isDisplayed else {
-            UIView.animate(
-                withDuration: 0.5,
-                delay: 0,
-                usingSpringWithDamping: 50,
-                initialSpringVelocity: 0,
-                options: .curveEaseInOut) {
-                    self.sideMenuView.frame.origin.x = -self.view.frame.width/1.5
-                }
-            viewModel.isSideMenuDisplayed = false
-            return
-        }
-        
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            usingSpringWithDamping: 50,
-            initialSpringVelocity: 0,
-            options: .curveEaseInOut) {
-                self.sideMenuView.frame.origin.x = 0
-            }
-        viewModel.isSideMenuDisplayed = true
-    }
 }
 
 
 // MARK: - Table view data source
 
-extension MainScreenTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        85
-    }
-    
-    //deleting
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-        }
-    }
-}
+//extension MainScreenTableViewController {
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        2
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        2
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
+//
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        85
+//    }
+//
+//    //deleting
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//        }
+//    }
+//}

@@ -353,10 +353,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="D0o-Bl-phV" id="hvA-8h-qGV"/>
-                            <outlet property="delegate" destination="D0o-Bl-phV" id="ILe-Bq-mh2"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Финансы" id="OIJ-xU-kX0">
                         <rightBarButtonItems>
@@ -373,6 +369,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="LiL-g1-FRS" id="XnV-FR-TPz"/>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="hgw-S7-OSb"/>
                     </connections>
                 </tableViewController>
