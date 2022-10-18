@@ -13,21 +13,23 @@ import RxDataSources
 import CoreData
 
 //context delegate
-protocol MainScreenViewControllerContextDelegate: AnyObject {
+protocol MainScreenViewControllerDelegate: AnyObject {
     var context: NSManagedObjectContext { get }
+    func updateAmountOfMoney(amount: String)
 }
 
 //transaction didchange delegate
 protocol MainScreenViewControllerTransactionUpdateDelegate: AnyObject {
-    func transactionsDidChange()
+    func newTransactionAdded()
 }
 
-class MainScreenViewController: UIViewController, MainScreenViewControllerContextDelegate, MainScreenViewControllerTransactionUpdateDelegate {
+class MainScreenViewController: UIViewController, MainScreenViewControllerDelegate, MainScreenViewControllerTransactionUpdateDelegate {
     private var viewModel: MainScreenViewModelProtocol!
     
     @IBOutlet private var tableView: UITableView!
     private var sideMenuView: SideMenuView!
-
+    @IBOutlet var amountOfMoneyLabel: UILabel!
+    
     //coreData Context
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -41,6 +43,8 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerContex
         return cell as! UITableViewCell
     } titleForHeaderInSection: { dataSource, index in
         dataSource.sectionModels[index].header
+    } canEditRowAtIndexPath: { _, _ in
+        true
     }
     
     // MARK: View LifeCycle
@@ -87,8 +91,13 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerContex
     }
     
     // MARK: TransactionList DidChange
-    func transactionsDidChange() {
+    func newTransactionAdded() {
         viewModel.getSections()
+    }
+    
+    // MARK: Update Amount Of Money
+    func updateAmountOfMoney(amount: String) {
+        amountOfMoneyLabel.text = amount
     }
 }
 
@@ -101,6 +110,9 @@ extension MainScreenViewController {
         //tableView
         viewModel.sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         tableView.rx.rowHeight.onNext(85)
+        tableView.rx.itemDeleted.subscribe { [unowned self] indexPath in
+            self.viewModel.deleteItem(at: indexPath)
+        }.disposed(by: disposeBag)
         
         //side menu
         sideMenuView = SideMenuView(mainScreenVC: self, frame: CGRect(

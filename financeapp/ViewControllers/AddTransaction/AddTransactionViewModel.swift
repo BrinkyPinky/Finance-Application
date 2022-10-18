@@ -52,7 +52,7 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
     }
     
     func categoryNameForItem(at indexPath: IndexPath) -> String {
-        isIncome ? incomingCategories[indexPath.row].name! : outcomingCategories[indexPath.row].name!
+        isIncome ? incomingCategories[indexPath.row].name : outcomingCategories[indexPath.row].name
     }
     
     // MARK: Checks AmountOfTransaction TextField for additional dots and deletes it if necessary
@@ -126,6 +126,7 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         
         do {
             try viewController.context.save()
+            AmountOfMoneyDataManager.shared.changeValue(amount, isNeedToIncrease: isIncome)
             completion()
         } catch {
             errorMessage("Что-то пошло не так.\nНе удается сохранить ваши данные")

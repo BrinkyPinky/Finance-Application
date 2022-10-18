@@ -10,7 +10,12 @@
 		30B42A1BBB5E06C62B535AE0 /* Pods_financeapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B54B07A91033F51A5BAE107 /* Pods_financeapp.framework */; };
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
+		E22BCF1E28FF4233000C2770 /* AmountOfMoneyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenViewController.swift */; };
+		E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397B28FED96A006ACF8F /* Transaction+CoreDataClass.swift */; };
+		E24E398028FED96A006ACF8F /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397C28FED96A006ACF8F /* Transaction+CoreDataProperties.swift */; };
+		E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */; };
+		E24E398228FED96A006ACF8F /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */; };
 		E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57D28F5966A00434A8A /* AppDelegate.swift */; };
 		E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57F28F5966A00434A8A /* SceneDelegate.swift */; };
 		E26DB58528F5966A00434A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58328F5966A00434A8A /* Main.storyboard */; };
@@ -35,7 +40,12 @@
 		9B54B07A91033F51A5BAE107 /* Pods_financeapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_financeapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountOfMoneyDataManager.swift; sourceTree = "<group>"; };
 		E22CB78928F8DF5C00B1F648 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		E24E397B28FED96A006ACF8F /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E24E397C28FED96A006ACF8F /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E26DB57A28F5966A00434A8A /* financeapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = financeapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26DB57D28F5966A00434A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26DB57F28F5966A00434A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B2240128FE9A4800489A07 /* FormatValueManager.swift */,
+				E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,6 +231,10 @@
 		E2DB478528F9361E001FE45B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E24E397B28FED96A006ACF8F /* Transaction+CoreDataClass.swift */,
+				E24E397C28FED96A006ACF8F /* Transaction+CoreDataProperties.swift */,
+				E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */,
+				E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */,
 				E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */,
 			);
 			path = Models;
@@ -352,16 +367,21 @@
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */,
+				E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
 				E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */,
 				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
+				E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */,
 				E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */,
 				E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */,
 				E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */,
+				E24E398228FED96A006ACF8F /* Categories+CoreDataProperties.swift in Sources */,
 				E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */,
 				E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */,
 				E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */,
 				E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */,
+				E22BCF1E28FF4233000C2770 /* AmountOfMoneyDataManager.swift in Sources */,
+				E24E398028FED96A006ACF8F /* Transaction+CoreDataProperties.swift in Sources */,
 				E2DB478728F9363A001FE45B /* SideMenuCellModel.swift in Sources */,
 				E28F20B328FC386500356181 /* MainScreenViewModel.swift in Sources */,
 				E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */,

@@ -310,12 +310,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zGc-w4-Jn9">
                                 <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="E1e-Bn-Cmj">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="98"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Остаток: 20 000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RB-Lz-k9V">
-                                            <rect key="frame" x="16" y="16" width="358" height="25"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9RB-Lz-k9V">
+                                            <rect key="frame" x="16" y="16" width="358" height="66"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -330,7 +330,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="85" id="QKl-Dy-Nfg" customClass="TransactionTableViewCell" customModule="financeapp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="112.33333206176758" width="350" height="85"/>
+                                        <rect key="frame" x="20" y="153.33333206176758" width="350" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QKl-Dy-Nfg" id="nqR-jb-uWz">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="85"/>
@@ -397,28 +397,27 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Финансы" id="2LA-cF-iWg">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="EAC-V2-f2T">
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="IiX-jj-Pi1" id="jR6-uB-zuu"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="command" catalog="system" id="2Z7-Nb-OxT">
-                                <connections>
-                                    <action selector="sideMenuButtonTapped:" destination="IiX-jj-Pi1" id="LDO-6L-W1d"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.bullet" catalog="system" id="2Z7-Nb-OxT">
+                            <connections>
+                                <action selector="sideMenuButtonTapped:" destination="IiX-jj-Pi1" id="LDO-6L-W1d"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EAC-V2-f2T">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="IiX-jj-Pi1" id="jR6-uB-zuu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="amountOfMoneyLabel" destination="9RB-Lz-k9V" id="u9o-4n-FEO"/>
                         <outlet property="tableView" destination="zGc-w4-Jn9" id="RGc-pe-2Bh"/>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="2ur-NM-QhX"/>
-                        <segue destination="HRK-Kv-68W" kind="presentation" id="ByD-En-Q4r"/>
+                        <segue destination="HRK-Kv-68W" kind="presentation" identifier="showAddTransactionViewController" id="ByD-En-Q4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ab-jA-PNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="-166"/>
+            <point key="canvasLocation" x="1953.8461538461538" y="-166.35071090047393"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X9d-wP-f3h">
@@ -440,7 +439,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="command" catalog="system" width="128" height="115"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

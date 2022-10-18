@@ -29,8 +29,9 @@ protocol MainScreenViewModelProtocol {
     var isSideMenuDisplayed: Bool { get set }
     var gesturePanBeginingPosition: CGFloat { get set }
     var sections: BehaviorSubject<[SectionOfTransactionModel]> { get }
-    init(_ viewController: MainScreenViewControllerContextDelegate)
+    init(_ viewController: MainScreenViewControllerDelegate)
     func getSections()
+    func deleteItem(at indexPath: IndexPath)
 }
 
 // MARK: ViewModel
@@ -42,10 +43,10 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     //tableView Sections
     var sections = BehaviorSubject<[SectionOfTransactionModel]>(value: [])
     
-    unowned var viewController: MainScreenViewControllerContextDelegate!
+    unowned var viewController: MainScreenViewControllerDelegate!
     
     // MARK: Init
-    required init(_ viewController: MainScreenViewControllerContextDelegate) {
+    required init(_ viewController: MainScreenViewControllerDelegate) {
         self.viewController = viewController
         getSections()
     }
@@ -64,10 +65,10 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
         
         for transaction in transactions {
             let dateForReference = FormatValueManager.shared
-                .formateDate(transaction.date!, dateStyle: .short, timeStyle: .none)
+                .formateDate(transaction.date, dateStyle: .short, timeStyle: .none)
             let dateForHeader = FormatValueManager.shared
-                .formateDate(transaction.date!, dateStyle: .long, timeStyle: .none)
-
+                .formateDate(transaction.date, dateStyle: .long, timeStyle: .none)
+            
             if referenceDate == nil {
                 referenceDate = dateForReference
                 firstLevelSection = SectionOfTransactionModel(header: dateForHeader, items: [])
@@ -81,9 +82,48 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
                 firstLevelSection = SectionOfTransactionModel(header: dateForHeader, items: [])
                 firstLevelSection?.items.append(transaction)
             }
+            viewController.updateAmountOfMoney(
+                amount: "\(FormatValueManager.shared.formatToDecimalNumber(AmountOfMoneyDataManager.shared.getValue())!) ₽"
+            )
         }
-        sections.append(firstLevelSection!)
+        
+        guard let firstLevelSection else { return }
+        sections.append(firstLevelSection)
         
         self.sections.onNext(sections)
+    }
+    
+    // MARK: Delete Item
+    
+    func deleteItem(at indexPath: IndexPath) {
+        guard var sections = try? sections.value() else { return }
+        let transactionToDelete = sections[indexPath.section].items.remove(at: indexPath.row)
+        if sections[indexPath.section].items.count == 0 {
+            sections.remove(at: indexPath.section)
+        }
+        
+        AmountOfMoneyDataManager.shared.changeValue(
+            transactionToDelete.amount,
+            isNeedToIncrease: !transactionToDelete.isIncome
+        )
+        viewController.updateAmountOfMoney(
+            amount: "\(FormatValueManager.shared.formatToDecimalNumber(AmountOfMoneyDataManager.shared.getValue())!) ₽"
+        )
+        
+        viewController.context.delete(transactionToDelete)
+        saveCoreDataObjects()
+        self.sections.onNext(sections)
+    }
+    
+    // MARK: Saving Any Changes to CoreData
+    
+    private func saveCoreDataObjects() {
+        if viewController.context.hasChanges {
+            do {
+                try viewController.context.save()
+            } catch {
+                print("Не удалось сохранить изменения в CoreData")
+            }
+        }
     }
 }

@@ -37,19 +37,22 @@ class CreateCategoryViewController: UIViewController, CreateCategoryViewControll
     var context = ((UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext)!
     
     //table view dataSource
-    private let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCategoryModel> { dataSource, tableView, indexPath, item in
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCategoryModel>{ dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(item.name!)"
+        cell.textLabel?.text = item.name
         return cell
     } titleForHeaderInSection: { dataSource, index in
-        return dataSource.sectionModels[index].header
-    } canEditRowAtIndexPath: { dataSource, indexPath in
-        return true
-    } canMoveRowAtIndexPath: { dataSource, indexPath in
-        return true
+        dataSource.sectionModels[index].header
+    } canEditRowAtIndexPath: { _, _ in
+        true
+    } canMoveRowAtIndexPath: { _, _ in
+        true
     }
+
     
     private let disposeBag = DisposeBag()
+    
+    // MARK: ViewController LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

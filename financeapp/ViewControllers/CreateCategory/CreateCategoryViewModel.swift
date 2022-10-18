@@ -10,7 +10,6 @@ import RxDataSources
 import RxSwift
 import CoreData
 
-//
 struct SectionOfCategoryModel {
     var header: String
     var items: [Item]
@@ -18,7 +17,11 @@ struct SectionOfCategoryModel {
 
 extension SectionOfCategoryModel: SectionModelType {
     typealias Item = Categories
-    
+
+    var identity: String {
+        return header
+    }
+
     init(original: SectionOfCategoryModel, items: [Item]) {
         self = original
         self.items = items
@@ -44,7 +47,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
     
     var sections = BehaviorSubject<[SectionOfCategoryModel]>(value: [])
     unowned var viewController: CreateCategoryViewControllerDelegate!
-    
+            
     // MARK: Init
     required init(_ viewController: CreateCategoryViewControllerDelegate) {
         self.viewController = viewController
@@ -76,7 +79,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
     // MARK: User Interactions
     
     func appendNewCategory(name: String?) {
-        guard let name else { return }
+        guard let name, name != "" else { return }
         guard var sections = try? sections.value() else { return }
         
         guard sections[0].items.count < 50 else {
@@ -92,6 +95,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
         self.sections.onNext(sections)
         
         saveCoreDataObject()
+        self.sections.onNext(sections)
     }
     
     func deleteCategory(at indexPath: IndexPath?) {

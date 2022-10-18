@@ -67,7 +67,7 @@ class AddTransactionViewController: UIViewController, AddTransactionViewControll
         ) { message in
             showAlert(message: message)
         } completion: {
-            mainScreenDelegate.transactionsDidChange()
+            mainScreenDelegate.newTransactionAdded()
             dismiss(animated: true)
         }
     }

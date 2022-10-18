@@ -41,6 +41,6 @@ class TransactionTableViewCell: UITableViewCell, TransactionTableViewCellReprese
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        transactionDateLabel.text = dateFormatter.string(from: transactionModel.date!)
+        transactionDateLabel.text = dateFormatter.string(from: transactionModel.date)
     }
 }

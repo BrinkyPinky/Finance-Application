@@ -18,7 +18,6 @@ protocol SideMenuViewDelegate {
 // MARK: SideMenuView
 
 class SideMenuView: UIView, SideMenuViewDelegate {
-    
     private lazy var sideMenuCellModel = [
         SideMenuCellModel(
             name: "Создать категорию",
@@ -45,9 +44,11 @@ class SideMenuView: UIView, SideMenuViewDelegate {
     // MARK: Setup
     
     func setup() {
+        self.backgroundColor = .systemGray5
+
         //tableView
-        self.backgroundColor = .systemBackground
         let tableView = UITableView()
+        tableView.backgroundColor = .systemGray5
         self.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -81,11 +82,13 @@ extension SideMenuView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        cell.backgroundColor = .systemGray5
         let cellModel = sideMenuCellModel[indexPath.row]
         var config = cell.defaultContentConfiguration()
         config.text = cellModel.name
         config.image = UIImage(systemName: cellModel.imageName)
         cell.contentConfiguration = config
+        
         
         return cell
     }
