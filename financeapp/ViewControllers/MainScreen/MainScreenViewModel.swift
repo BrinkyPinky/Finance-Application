@@ -29,7 +29,8 @@ protocol MainScreenViewModelProtocol {
     var isSideMenuDisplayed: Bool { get set }
     var gesturePanBeginingPosition: CGFloat { get set }
     var sections: BehaviorSubject<[SectionOfTransactionModel]> { get }
-    init(_ viewController: MainScreenViewControllerDelegate)
+    init(_ viewController: MainScreenViewControllerContextDelegate)
+    func getSections()
 }
 
 // MARK: ViewModel
@@ -41,26 +42,48 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     //tableView Sections
     var sections = BehaviorSubject<[SectionOfTransactionModel]>(value: [])
     
-    unowned var viewController: MainScreenViewControllerDelegate!
+    unowned var viewController: MainScreenViewControllerContextDelegate!
     
     // MARK: Init
-    required init(_ viewController: MainScreenViewControllerDelegate) {
+    required init(_ viewController: MainScreenViewControllerContextDelegate) {
         self.viewController = viewController
         getSections()
     }
     
     // MARK: GetSections Method
-    private func getSections() {
-        //        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
-        //        let transactions = (try? viewController.context.fetch(fetchRequest))!
+    func getSections() {
+        let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.fetchLimit = 20
+        let transactions = try? viewController.context.fetch(fetchRequest)
         
-        let transaction = Transaction(context: viewController.context)
-        transaction.isIncome = true
-        transaction.category = "Jopa"
-        transaction.amount = "199 999.90"
-        transaction.date = Date()
-        transaction.isIncome = false
+        guard let transactions else { return }
+        var referenceDate: String?
+        var sections: [SectionOfTransactionModel] = []
+        var firstLevelSection: SectionOfTransactionModel?
         
-        sections.onNext([SectionOfTransactionModel(header: "21.09.2002", items: [transaction])])
+        for transaction in transactions {
+            let dateForReference = FormatValueManager.shared
+                .formateDate(transaction.date!, dateStyle: .short, timeStyle: .none)
+            let dateForHeader = FormatValueManager.shared
+                .formateDate(transaction.date!, dateStyle: .long, timeStyle: .none)
+
+            if referenceDate == nil {
+                referenceDate = dateForReference
+                firstLevelSection = SectionOfTransactionModel(header: dateForHeader, items: [])
+            }
+            
+            if dateForReference == referenceDate {
+                firstLevelSection?.items.append(transaction)
+            } else {
+                referenceDate = dateForReference
+                sections.append(firstLevelSection!)
+                firstLevelSection = SectionOfTransactionModel(header: dateForHeader, items: [])
+                firstLevelSection?.items.append(transaction)
+            }
+        }
+        sections.append(firstLevelSection!)
+        
+        self.sections.onNext(sections)
     }
 }

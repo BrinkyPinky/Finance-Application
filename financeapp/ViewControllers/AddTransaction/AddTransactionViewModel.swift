@@ -7,12 +7,9 @@
 
 import CoreData
 
-enum TransactionsTypes {
-    case income, outcome
-}
 
 protocol AddTransactionViewModelProtocol {
-    var currentTransactionType: TransactionsTypes { get set }
+    var isIncome: Bool { get set }
     var incomingCategories: [Categories] { get }
     var outcomingCategories: [Categories] { get }
     init(viewController: AddTransactionViewControllerDelegate)
@@ -21,19 +18,19 @@ protocol AddTransactionViewModelProtocol {
     func categoryNameForItem(at indexPath: IndexPath) -> String
     func numberOfItemsInSection() -> Int
     func formatDate(_ date: Date?) -> String
+    func saveTransaction(amount: String?, date: Date, categoryIndexPath: IndexPath?, comment: String?, errorMessage: (String) -> Void, completion: () -> Void)
 }
 
 class AddTransactionViewModel: AddTransactionViewModelProtocol {
     unowned var viewController: AddTransactionViewControllerDelegate!
     
-    var currentTransactionType: TransactionsTypes = .income
-
-    // MARK: Categories
+    var isIncome = true
     
+    //List of categories
     var incomingCategories: [Categories] = []
-    
     var outcomingCategories: [Categories] = []
     
+    // MARK: Init
     
     required init(viewController: AddTransactionViewControllerDelegate) {
         self.viewController = viewController
@@ -49,23 +46,13 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
     }
     
     // MARK: Categories collection view gets the data
-
+    
     func numberOfItemsInSection() -> Int {
-        switch currentTransactionType {
-        case .income:
-            return incomingCategories.count
-        case .outcome:
-            return outcomingCategories.count
-        }
+        isIncome ? incomingCategories.count : outcomingCategories.count
     }
     
     func categoryNameForItem(at indexPath: IndexPath) -> String {
-        switch currentTransactionType {
-        case .income:
-            return incomingCategories[indexPath.row].name!
-        case .outcome:
-            return outcomingCategories[indexPath.row].name!
-        }
+        isIncome ? incomingCategories[indexPath.row].name! : outcomingCategories[indexPath.row].name!
     }
     
     // MARK: Checks AmountOfTransaction TextField for additional dots and deletes it if necessary
@@ -89,25 +76,59 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
     func formatAmountOfTransactionOnEditingEnd(_ text: String?) -> String {
         guard let text else { return "Error" }
         guard let number = Double(text) else { return "Error" }
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale(identifier: "ru_RU")
-        formatter.decimalSeparator = "."
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        let formattedText = formatter.string(from: NSNumber(floatLiteral: number))
-        
+        let formattedText = FormatValueManager.shared.formatToDecimalNumber(number)
         return formattedText ?? "Error"
     }
     
     // MARK: DatePicker Formatter
     
     func formatDate(_ date: Date?) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ru_RU")
-        return formatter.string(from: date ?? Date())
+        return FormatValueManager.shared.formateDate(
+            date ?? Date(),
+            dateStyle: .long,
+            timeStyle: .short
+        )
+    }
+    
+    // MARK: Save Transaction
+    
+    func saveTransaction(
+        amount: String?,
+        date: Date,
+        categoryIndexPath: IndexPath?,
+        comment: String?,
+        errorMessage: (String) -> Void,
+        completion: () -> Void
+    ) {
+        //amount check
+        guard var amount else {
+            errorMessage("Сумма имеет неверный формат")
+            return
+        }
+        amount.removeAll(where: { $0 == " " })
+        guard let amount = Double(amount) else {
+            errorMessage("Сумма имеет неверный формат")
+            return
+        }
+        //category check
+        guard let categoryIndexPath else {
+            errorMessage("Никакая категория не выбрана")
+            return
+        }
+        let categoryName = categoryNameForItem(at: categoryIndexPath)
+        
+        let transaction = Transaction(context: viewController.context)
+        transaction.amount = amount
+        transaction.date = date
+        transaction.category = categoryName
+        transaction.isIncome = isIncome
+        transaction.comment = comment ?? ""
+        
+        do {
+            try viewController.context.save()
+            completion()
+        } catch {
+            errorMessage("Что-то пошло не так.\nНе удается сохранить ваши данные")
+        }
     }
 }

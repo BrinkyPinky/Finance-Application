@@ -29,14 +29,82 @@ class AddTransactionViewController: UIViewController, AddTransactionViewControll
     
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    unowned var mainScreenDelegate: MainScreenViewControllerTransactionUpdateDelegate!
+    
+    // MARK: ViewController LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AddTransactionViewModel(viewController: self)
         setup()
     }
     
-    // MARK: Setup
+    // MARK: buttons Actions
     
+    @IBAction private func incomeButtonAction(_ sender: Any) {
+        viewModel.isIncome = true
+        outcomeButton.tintColor = .opaqueSeparator
+        incomeButton.tintColor = .systemGreen
+        categoriesCollectionView.reloadData()
+    }
+    
+    @IBAction private func outcomeButtonAction(_ sender: Any) {
+        viewModel.isIncome = false
+        incomeButton.tintColor = .opaqueSeparator
+        outcomeButton.tintColor = .systemRed
+        categoriesCollectionView.reloadData()
+    }
+    
+    @IBAction private func cancelButtonAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction private func saveButtonAction(_ sender: Any) {
+        viewModel.saveTransaction(
+            amount: transactionAmountTextField.text,
+            date: datePicker.date,
+            categoryIndexPath: categoriesCollectionView.indexPathsForSelectedItems?.first,
+            comment: transactionCommentTextView.text
+        ) { message in
+            showAlert(message: message)
+        } completion: {
+            mainScreenDelegate.transactionsDidChange()
+            dismiss(animated: true)
+        }
+    }
+    
+    // MARK: show Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
+
+// MARK: Categories Collection View
+
+extension AddTransactionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.numberOfItemsInSection()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.categoryNameLabel.text = viewModel.categoryNameForItem(at: indexPath)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.contentView.backgroundColor = .red
+    }
+}
+
+// MARK: Setup
+
+extension AddTransactionViewController {
     private func setup() {
         self.hideKeyboardWhenTappedAround()
         
@@ -83,43 +151,5 @@ class AddTransactionViewController: UIViewController, AddTransactionViewControll
         transactionCommentTextView.layer.borderColor = UIColor.opaqueSeparator.cgColor
         transactionCommentTextView.layer.borderWidth = 0.5
         transactionCommentTextView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-    }
-    
-    // MARK: Income and Outcome button Actions
-    
-    @IBAction func incomeButtonAction(_ sender: Any) {
-        viewModel.currentTransactionType = .income
-        outcomeButton.tintColor = .opaqueSeparator
-        incomeButton.tintColor = .systemGreen
-        categoriesCollectionView.reloadData()
-    }
-    
-    @IBAction func outcomeButtonAction(_ sender: Any) {
-        viewModel.currentTransactionType = .outcome
-        incomeButton.tintColor = .opaqueSeparator
-        outcomeButton.tintColor = .systemRed
-        categoriesCollectionView.reloadData()
-    }
-}
-
-// MARK: Categories Collection View
-
-extension AddTransactionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfItemsInSection()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
-        
-        cell.categoryNameLabel.text = viewModel.categoryNameForItem(at: indexPath)
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
-        
-        cell.contentView.backgroundColor = .red
     }
 }

@@ -118,7 +118,7 @@
         <!--Add Transaction View Controller-->
         <scene sceneID="rHO-z2-QWW">
             <objects>
-                <viewController id="HRK-Kv-68W" customClass="AddTransactionViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTransactionViewController" id="HRK-Kv-68W" customClass="AddTransactionViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gga-ht-hQX">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,13 +230,21 @@
                                 <rect key="frame" x="271" y="20" width="103" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Отменить"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="HRK-Kv-68W" eventType="touchUpInside" id="8q0-c3-0dt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-Se-ShV">
                                 <rect key="frame" x="32" y="516.66666666666663" width="326" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zMP-xj-gfq"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="filled" title="Сохранить" cornerStyle="medium"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Сохранить"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="HRK-Kv-68W" eventType="touchUpInside" id="eWX-3J-Jx6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zAa-Ti-A02"/>
@@ -256,6 +264,7 @@
                             <constraint firstItem="hcx-ZF-o9y" firstAttribute="top" secondItem="zAa-Ti-A02" secondAttribute="top" constant="16" id="O4N-NH-VQM"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IPC-H0-bEU" secondAttribute="trailing" symbolic="YES" id="OHh-JZ-RWc"/>
                             <constraint firstItem="tHn-Se-ShV" firstAttribute="trailing" secondItem="OOZ-90-Lyi" secondAttribute="trailing" id="Syn-pQ-OJ6"/>
+                            <constraint firstItem="wfe-Pm-hhF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cy5-9q-krs" secondAttribute="trailing" constant="8" symbolic="YES" id="Zw7-lc-Hro"/>
                             <constraint firstItem="TuG-UT-U8X" firstAttribute="trailing" secondItem="LVl-9v-v61" secondAttribute="trailing" id="abZ-lO-B1P"/>
                             <constraint firstItem="zAa-Ti-A02" firstAttribute="trailing" secondItem="wfe-Pm-hhF" secondAttribute="trailing" constant="16" id="ahN-cE-cvl"/>
                             <constraint firstItem="OOZ-90-Lyi" firstAttribute="leading" secondItem="jrp-wa-x8X" secondAttribute="leading" id="dCt-Tx-Ldh"/>
@@ -391,7 +400,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="EAC-V2-f2T">
                                 <connections>
-                                    <segue destination="HRK-Kv-68W" kind="presentation" id="adD-PB-lUH"/>
+                                    <action selector="addButtonTapped:" destination="IiX-jj-Pi1" id="jR6-uB-zuu"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="command" catalog="system" id="2Z7-Nb-OxT">
@@ -404,6 +413,7 @@
                     <connections>
                         <outlet property="tableView" destination="zGc-w4-Jn9" id="RGc-pe-2Bh"/>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="2ur-NM-QhX"/>
+                        <segue destination="HRK-Kv-68W" kind="presentation" id="ByD-En-Q4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ab-jA-PNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

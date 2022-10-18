@@ -34,9 +34,10 @@ class TransactionTableViewCell: UITableViewCell, TransactionTableViewCellReprese
     private func setup() {
         transactionTypeView.layer.cornerRadius = transactionTypeView.frame.width / 2
         
-        transactionAmountLabel.text = transactionModel.amount
+        transactionAmountLabel.text = FormatValueManager.shared
+            .formatToDecimalNumber(transactionModel.amount)
         transactionCategoryLabel.text = transactionModel.category
-        transactionTypeView.backgroundColor = transactionModel.isIncome ? .systemRed : .systemGreen
+        transactionTypeView.backgroundColor = transactionModel.isIncome ? .systemGreen : .systemRed
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "ru_RU")

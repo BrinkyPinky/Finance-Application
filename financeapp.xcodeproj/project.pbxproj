@@ -18,6 +18,7 @@
 		E26DB58A28F5966B00434A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58828F5966B00434A8A /* LaunchScreen.storyboard */; };
 		E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C7AE328F97EE3002AA5ED /* CreateCategoryViewModel.swift */; };
 		E28F20B328FC386500356181 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F20B228FC386500356181 /* MainScreenViewModel.swift */; };
+		E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2240128FE9A4800489A07 /* FormatValueManager.swift */; };
 		E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */; };
 		E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */; };
 		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
@@ -44,6 +45,7 @@
 		E26DB58B28F5966B00434A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E27C7AE328F97EE3002AA5ED /* CreateCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewModel.swift; sourceTree = "<group>"; };
 		E28F20B228FC386500356181 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		E2B2240128FE9A4800489A07 /* FormatValueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatValueManager.swift; sourceTree = "<group>"; };
 		E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		E25E3A7F28F9E44500C15CE4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E2B2240128FE9A4800489A07 /* FormatValueManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
+				E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */,
 				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
 				E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */,
 				E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */,

@@ -12,14 +12,20 @@ import RxGesture
 import RxDataSources
 import CoreData
 
-protocol MainScreenViewControllerDelegate: AnyObject {
+//context delegate
+protocol MainScreenViewControllerContextDelegate: AnyObject {
     var context: NSManagedObjectContext { get }
 }
 
-class MainScreenViewController: UIViewController, MainScreenViewControllerDelegate {
+//transaction didchange delegate
+protocol MainScreenViewControllerTransactionUpdateDelegate: AnyObject {
+    func transactionsDidChange()
+}
+
+class MainScreenViewController: UIViewController, MainScreenViewControllerContextDelegate, MainScreenViewControllerTransactionUpdateDelegate {
     private var viewModel: MainScreenViewModelProtocol!
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     private var sideMenuView: SideMenuView!
 
     //coreData Context
@@ -29,15 +35,13 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
     private let disposeBag = DisposeBag()
     
     //tableView DataSource
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionModel> { dataSource, tableView, indexPath, item in
+    private let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTransactionModel> { dataSource, tableView, indexPath, item in
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCellRepresentable
         cell.transactionModel = item
-        print(indexPath)
         return cell as! UITableViewCell
     } titleForHeaderInSection: { dataSource, index in
         dataSource.sectionModels[index].header
     }
-
     
     // MARK: View LifeCycle
     override func viewDidLoad() {
@@ -49,6 +53,13 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
         moveSideMenu(isDisplayed: viewModel.isSideMenuDisplayed)
     }
     
+    @IBAction private func addButtonTapped(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let addTransactionViewController = storyBoard
+            .instantiateViewController(withIdentifier: "AddTransactionViewController") as! AddTransactionViewController
+        addTransactionViewController.mainScreenDelegate = self
+        present(addTransactionViewController, animated: true)
+    }
     // MARK: Show or Hide Side Menu Method
     func moveSideMenu(isDisplayed: Bool) {
         guard !isDisplayed else {
@@ -73,6 +84,11 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
                 self.sideMenuView.frame.origin.x = 0
             }
         viewModel.isSideMenuDisplayed = true
+    }
+    
+    // MARK: TransactionList DidChange
+    func transactionsDidChange() {
+        viewModel.getSections()
     }
 }
 
