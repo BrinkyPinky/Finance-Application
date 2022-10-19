@@ -95,5 +95,6 @@ extension SideMenuView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sideMenuCellModel[indexPath.row].action()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

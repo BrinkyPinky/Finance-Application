@@ -10,6 +10,7 @@
 		30B42A1BBB5E06C62B535AE0 /* Pods_financeapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B54B07A91033F51A5BAE107 /* Pods_financeapp.framework */; };
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
+		E21F614D2900238300F8B7B6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E21F614C2900238300F8B7B6 /* SwiftUICharts */; };
 		E22BCF1E28FF4233000C2770 /* AmountOfMoneyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenViewController.swift */; };
 		E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397B28FED96A006ACF8F /* Transaction+CoreDataClass.swift */; };
@@ -27,11 +28,13 @@
 		E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */; };
 		E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */; };
 		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
+		E2D2EF2928FFED1400796C84 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */; };
 		E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB431428F9265F001FE45B /* SideMenuView.swift */; };
 		E2DB478728F9363A001FE45B /* SideMenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */; };
 		E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */; };
 		E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */; };
 		E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */; };
+		E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4768E2900116A001A9E5E /* outComeChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,11 +62,13 @@
 		E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		E2DB431428F9265F001FE45B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellModel.swift; sourceTree = "<group>"; };
 		E2E156B928FAC8EB009DD2B2 /* Categories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Categories.xcdatamodel; sourceTree = "<group>"; };
 		E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
+		E2F4768E2900116A001A9E5E /* outComeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outComeChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B42A1BBB5E06C62B535AE0 /* Pods_financeapp.framework in Frameworks */,
+				E21F614D2900238300F8B7B6 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,7 @@
 		E2B5933428F5C0CA005041C6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E2D2EF2728FFE9C600796C84 /* Statistic */,
 				E22CB78B28F8DF6500B1F648 /* MainScreen */,
 				E21441CC28F93A5E0066B030 /* CreateCategory */,
 				E2C80DE028F5C25200234FD3 /* AddTransaction */,
@@ -220,6 +227,14 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		E2D2EF2728FFE9C600796C84 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
 		E2DB431828F93147001FE45B /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +258,7 @@
 		E2EB33C928F8E83F00AF8642 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				E2F4768E2900116A001A9E5E /* outComeChartView.swift */,
 				E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */,
 				E2DB431828F93147001FE45B /* SideMenu */,
 			);
@@ -267,6 +283,9 @@
 			dependencies = (
 			);
 			name = financeapp;
+			packageProductDependencies = (
+				E21F614C2900238300F8B7B6 /* SwiftUICharts */,
+			);
 			productName = financeapp;
 			productReference = E26DB57A28F5966A00434A8A /* financeapp.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +314,9 @@
 				Base,
 			);
 			mainGroup = E26DB57128F5966A00434A8A;
+			packageReferences = (
+				E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = E26DB57B28F5966A00434A8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -367,8 +389,10 @@
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */,
+				E2D2EF2928FFED1400796C84 /* StatisticViewController.swift in Sources */,
 				E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
+				E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */,
 				E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */,
 				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
 				E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */,
@@ -540,7 +564,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +594,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -606,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E21F614C2900238300F8B7B6 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */ = {

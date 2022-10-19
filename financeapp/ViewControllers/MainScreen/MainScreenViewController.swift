@@ -11,6 +11,8 @@ import RxCocoa
 import RxGesture
 import RxDataSources
 import CoreData
+import SwiftUI
+import SwiftUICharts
 
 //context delegate
 protocol MainScreenViewControllerDelegate: AnyObject {
@@ -29,6 +31,8 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
     @IBOutlet private var tableView: UITableView!
     private var sideMenuView: SideMenuView!
     @IBOutlet var amountOfMoneyLabel: UILabel!
+    
+    @IBOutlet var chartView: UIView!
     
     //coreData Context
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -50,6 +54,15 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
     // MARK: View LifeCycle
     override func viewDidLoad() {
         setup()
+        
+        let hostingChartView = UIHostingController(
+            rootView: outComeChartView(
+                viewSize: CGSizeMake(chartView.frame.width, chartView.frame.height),
+                chartData: ChartData(values: [("1 Окт", 2000),("2 Окт", 1864.92),("3 Окт", 789.29),("4 Окт", 4200),("5 Окт", 400.29),("6 Окт", 245.12),("7 Окт", 5000.20)])
+            )
+        )
+        hostingChartView.view.frame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        self.chartView.addSubview(hostingChartView.view)
     }
     
     // MARK: Side Menu Button Tapped Action
@@ -64,6 +77,7 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
         addTransactionViewController.mainScreenDelegate = self
         present(addTransactionViewController, animated: true)
     }
+    
     // MARK: Show or Hide Side Menu Method
     func moveSideMenu(isDisplayed: Bool) {
         guard !isDisplayed else {
@@ -110,8 +124,13 @@ extension MainScreenViewController {
         //tableView
         viewModel.sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         tableView.rx.rowHeight.onNext(85)
+        //delete item
         tableView.rx.itemDeleted.subscribe { [unowned self] indexPath in
-            self.viewModel.deleteItem(at: indexPath)
+            viewModel.deleteItem(at: indexPath)
+        }.disposed(by: disposeBag)
+        //select item
+        tableView.rx.itemSelected.subscribe { [unowned self] indexPath in
+            tableView.deselectRow(at: indexPath, animated: true)
         }.disposed(by: disposeBag)
         
         //side menu

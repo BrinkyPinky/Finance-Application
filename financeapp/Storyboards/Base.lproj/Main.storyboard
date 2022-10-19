@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-cb-uQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750.7692307692305" y="-941.23222748815158"/>
+            <point key="canvasLocation" x="2789" y="-694"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="rHO-z2-QWW">
@@ -310,27 +310,44 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zGc-w4-Jn9">
                                 <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="E1e-Bn-Cmj">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="98"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9RB-Lz-k9V">
-                                            <rect key="frame" x="16" y="16" width="358" height="66"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 ₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9RB-Lz-k9V">
+                                            <rect key="frame" x="16" y="37" width="358" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общий баланс:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4m-QR-f9n">
+                                            <rect key="frame" x="16" y="16" width="122" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzV-hQ-z9c">
+                                            <rect key="frame" x="16" y="101" width="358" height="179"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="pzV-hQ-z9c" secondAttribute="height" multiplier="2:1" id="CoK-8l-62e"/>
+                                            </constraints>
+                                        </containerView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="9RB-Lz-k9V" secondAttribute="trailing" constant="16" id="6QY-on-3Eo"/>
-                                        <constraint firstItem="9RB-Lz-k9V" firstAttribute="top" secondItem="E1e-Bn-Cmj" secondAttribute="top" constant="16" id="P5L-Fu-5yH"/>
-                                        <constraint firstAttribute="bottom" secondItem="9RB-Lz-k9V" secondAttribute="bottom" constant="16" id="POa-B1-jFB"/>
+                                        <constraint firstItem="M4m-QR-f9n" firstAttribute="leading" secondItem="E1e-Bn-Cmj" secondAttribute="leading" constant="16" id="B4H-Pj-E4F"/>
+                                        <constraint firstItem="9RB-Lz-k9V" firstAttribute="top" secondItem="M4m-QR-f9n" secondAttribute="bottom" id="Ew1-7U-SJP"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M4m-QR-f9n" secondAttribute="trailing" constant="20" symbolic="YES" id="HqE-DV-yUF"/>
+                                        <constraint firstItem="M4m-QR-f9n" firstAttribute="top" secondItem="E1e-Bn-Cmj" secondAttribute="top" constant="16" id="dcJ-Lu-FZS"/>
+                                        <constraint firstItem="pzV-hQ-z9c" firstAttribute="top" secondItem="9RB-Lz-k9V" secondAttribute="bottom" constant="16" id="hYV-6s-JCv"/>
+                                        <constraint firstAttribute="trailing" secondItem="pzV-hQ-z9c" secondAttribute="trailing" constant="16" id="qAG-sq-eJ1"/>
                                         <constraint firstItem="9RB-Lz-k9V" firstAttribute="leading" secondItem="E1e-Bn-Cmj" secondAttribute="leading" constant="16" id="qld-fr-Zsh"/>
+                                        <constraint firstItem="pzV-hQ-z9c" firstAttribute="leading" secondItem="E1e-Bn-Cmj" secondAttribute="leading" constant="16" id="sIp-kq-W2h"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="85" id="QKl-Dy-Nfg" customClass="TransactionTableViewCell" customModule="financeapp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="153.33333206176758" width="350" height="85"/>
+                                        <rect key="frame" x="20" y="355.33333206176758" width="350" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QKl-Dy-Nfg" id="nqR-jb-uWz">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="85"/>
@@ -410,6 +427,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amountOfMoneyLabel" destination="9RB-Lz-k9V" id="u9o-4n-FEO"/>
+                        <outlet property="chartView" destination="pzV-hQ-z9c" id="elB-5p-aUE"/>
                         <outlet property="tableView" destination="zGc-w4-Jn9" id="RGc-pe-2Bh"/>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="2ur-NM-QhX"/>
                         <segue destination="HRK-Kv-68W" kind="presentation" identifier="showAddTransactionViewController" id="ByD-En-Q4r"/>
