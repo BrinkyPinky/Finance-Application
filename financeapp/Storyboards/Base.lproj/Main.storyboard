@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-cb-uQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2789" y="-694"/>
+            <point key="canvasLocation" x="2788" y="-929"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="rHO-z2-QWW">
@@ -297,7 +297,143 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXs-nE-Ekl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790.7692307692305" y="-34.123222748815166"/>
+            <point key="canvasLocation" x="2788" y="-166"/>
+        </scene>
+        <!--Statistic View Controller-->
+        <scene sceneID="8Y4-pd-NAO">
+            <objects>
+                <viewController id="FDY-UR-hnd" customClass="StatisticViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PSY-NS-3Uf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sad-lz-HP9">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="IlI-EX-6cs">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="98"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="За последние 30 дней" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTa-WL-GCK">
+                                            <rect key="frame" x="100.66666666666669" y="15.999999999999998" width="189" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ya6-09-Pb5">
+                                            <rect key="frame" x="313.33333333333331" y="36.333333333333336" width="60.666666666666686" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemRedColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QiO-YK-jTK">
+                                            <rect key="frame" x="16" y="56.666666666666664" width="79.666666666666671" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wQj-CA-yfO">
+                                            <rect key="frame" x="294.33333333333331" y="56.666666666666664" width="79.666666666666686" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSA-mH-Sus">
+                                            <rect key="frame" x="16.000000000000004" y="36.333333333333336" width="53.333333333333343" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemGreenColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Ya6-09-Pb5" secondAttribute="trailing" constant="16" id="0yp-eL-h8P"/>
+                                        <constraint firstItem="DTa-WL-GCK" firstAttribute="centerX" secondItem="IlI-EX-6cs" secondAttribute="centerX" id="FFt-t2-Nb6"/>
+                                        <constraint firstItem="QiO-YK-jTK" firstAttribute="top" secondItem="QSA-mH-Sus" secondAttribute="bottom" id="G0g-FA-Gln"/>
+                                        <constraint firstItem="QSA-mH-Sus" firstAttribute="leading" secondItem="IlI-EX-6cs" secondAttribute="leading" constant="16" id="Uny-fV-QVa"/>
+                                        <constraint firstItem="DTa-WL-GCK" firstAttribute="top" secondItem="IlI-EX-6cs" secondAttribute="top" constant="16" id="amU-P2-5tg"/>
+                                        <constraint firstItem="wQj-CA-yfO" firstAttribute="trailing" secondItem="Ya6-09-Pb5" secondAttribute="trailing" id="hAN-qZ-9f6"/>
+                                        <constraint firstItem="QSA-mH-Sus" firstAttribute="top" secondItem="DTa-WL-GCK" secondAttribute="bottom" id="jcy-LJ-m5m"/>
+                                        <constraint firstItem="Ya6-09-Pb5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QSA-mH-Sus" secondAttribute="trailing" constant="8" symbolic="YES" id="ovv-pz-dR7"/>
+                                        <constraint firstItem="wQj-CA-yfO" firstAttribute="firstBaseline" secondItem="QiO-YK-jTK" secondAttribute="firstBaseline" id="pz6-jx-ePx"/>
+                                        <constraint firstItem="QiO-YK-jTK" firstAttribute="leading" secondItem="QSA-mH-Sus" secondAttribute="leading" id="rp2-IW-Zyd"/>
+                                        <constraint firstItem="wQj-CA-yfO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QiO-YK-jTK" secondAttribute="trailing" constant="8" symbolic="YES" id="tD9-Mh-2x5"/>
+                                        <constraint firstItem="Ya6-09-Pb5" firstAttribute="firstBaseline" secondItem="QSA-mH-Sus" secondAttribute="firstBaseline" id="tfv-bV-cRY"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="65" id="CLy-Z7-hy5" customClass="StatisticTableViewCell" customModule="financeapp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="153.33333206176758" width="350" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CLy-Z7-hy5" id="Uvz-sS-nlO">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upr-fW-eLf">
+                                                    <rect key="frame" x="20" y="10.999999999999998" width="79.666666666666671" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 285.90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-Xk-imp">
+                                                    <rect key="frame" x="263.66666666666669" y="10.999999999999998" width="66.333333333333314" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2Cu-Aj-IUf">
+                                                    <rect key="frame" x="20" y="45" width="269.33333333333331" height="5"/>
+                                                    <color key="tintColor" systemColor="systemPurpleColor"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1t-rW-qVY">
+                                                    <rect key="frame" x="303.66666666666669" y="39.666666666666664" width="26.333333333333314" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C1t-rW-qVY" firstAttribute="trailing" secondItem="Uvz-sS-nlO" secondAttribute="trailingMargin" id="1EX-AL-fxW"/>
+                                                <constraint firstItem="upr-fW-eLf" firstAttribute="leading" secondItem="Uvz-sS-nlO" secondAttribute="leadingMargin" id="1dK-rd-1bF"/>
+                                                <constraint firstItem="upr-fW-eLf" firstAttribute="top" secondItem="Uvz-sS-nlO" secondAttribute="topMargin" id="8sj-dt-dnh"/>
+                                                <constraint firstItem="MDm-Xk-imp" firstAttribute="top" secondItem="Uvz-sS-nlO" secondAttribute="topMargin" id="Af1-AC-NBA"/>
+                                                <constraint firstItem="2Cu-Aj-IUf" firstAttribute="width" secondItem="Uvz-sS-nlO" secondAttribute="width" multiplier="100:130" id="Knb-IF-865"/>
+                                                <constraint firstItem="2Cu-Aj-IUf" firstAttribute="centerY" secondItem="C1t-rW-qVY" secondAttribute="centerY" id="OVN-aD-hle"/>
+                                                <constraint firstItem="2Cu-Aj-IUf" firstAttribute="leading" secondItem="Uvz-sS-nlO" secondAttribute="leadingMargin" id="X6a-uB-pEv"/>
+                                                <constraint firstItem="C1t-rW-qVY" firstAttribute="bottom" secondItem="Uvz-sS-nlO" secondAttribute="bottomMargin" id="d1I-2x-XXe"/>
+                                                <constraint firstItem="MDm-Xk-imp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="upr-fW-eLf" secondAttribute="trailing" constant="8" symbolic="YES" id="k7d-Tv-Uee"/>
+                                                <constraint firstItem="MDm-Xk-imp" firstAttribute="trailing" secondItem="Uvz-sS-nlO" secondAttribute="trailingMargin" id="lzG-ak-6Jc"/>
+                                                <constraint firstItem="C1t-rW-qVY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uvz-sS-nlO" secondAttribute="leading" constant="20" symbolic="YES" id="t2H-lM-8Jy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="MDm-Xk-imp" id="KOP-wC-Jse"/>
+                                            <outlet property="categoryName" destination="upr-fW-eLf" id="ibj-1V-NdT"/>
+                                            <outlet property="percentLabel" destination="C1t-rW-qVY" id="79D-Oe-dAh"/>
+                                            <outlet property="progressView" destination="2Cu-Aj-IUf" id="9EO-lm-dAY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BDx-33-mb2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BDx-33-mb2" firstAttribute="bottom" secondItem="sad-lz-HP9" secondAttribute="bottom" id="Bpw-fJ-rdw"/>
+                            <constraint firstItem="BDx-33-mb2" firstAttribute="trailing" secondItem="sad-lz-HP9" secondAttribute="trailing" id="EeA-6h-h7n"/>
+                            <constraint firstItem="sad-lz-HP9" firstAttribute="leading" secondItem="BDx-33-mb2" secondAttribute="leading" id="kLU-Sh-6U0"/>
+                            <constraint firstItem="sad-lz-HP9" firstAttribute="top" secondItem="BDx-33-mb2" secondAttribute="top" id="vZD-D5-ODS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5qj-S9-WwL"/>
+                    <connections>
+                        <outlet property="expenditureLabel" destination="wQj-CA-yfO" id="7OA-XA-hWh"/>
+                        <outlet property="profitLabel" destination="QiO-YK-jTK" id="dW9-mF-HxZ"/>
+                        <outlet property="tableView" destination="sad-lz-HP9" id="zkt-Hx-abq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhK-b4-Ldg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2787.6923076923076" y="597.15639810426535"/>
         </scene>
         <!--Финансы-->
         <scene sceneID="wXP-sS-twc">
@@ -431,6 +567,7 @@
                         <outlet property="tableView" destination="zGc-w4-Jn9" id="RGc-pe-2Bh"/>
                         <segue destination="qnN-6V-OQz" kind="show" identifier="showCreateCategoryViewController" id="2ur-NM-QhX"/>
                         <segue destination="HRK-Kv-68W" kind="presentation" identifier="showAddTransactionViewController" id="ByD-En-Q4r"/>
+                        <segue destination="FDY-UR-hnd" kind="show" identifier="showStatisticsViewController" id="u2w-F8-Iot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ab-jA-PNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -479,6 +616,12 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

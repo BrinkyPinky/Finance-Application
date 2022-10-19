@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30B42A1BBB5E06C62B535AE0 /* Pods_financeapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B54B07A91033F51A5BAE107 /* Pods_financeapp.framework */; };
+		E20F0AB5290089B900E30F7E /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F0AB4290089B900E30F7E /* StatisticTableViewCell.swift */; };
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
 		E21F614D2900238300F8B7B6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E21F614C2900238300F8B7B6 /* SwiftUICharts */; };
@@ -28,19 +29,22 @@
 		E2BEF78528F598E8002ECFC7 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */; };
 		E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */; };
 		E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */; };
-		E2D2EF2928FFED1400796C84 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */; };
 		E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB431428F9265F001FE45B /* SideMenuView.swift */; };
 		E2DB478728F9363A001FE45B /* SideMenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */; };
 		E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2E156B828FAC8EB009DD2B2 /* CoreData.xcdatamodeld */; };
+		E2EA02C429007FF2000CD963 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA02C329007FF2000CD963 /* StatisticViewModel.swift */; };
 		E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */; };
+		E2EB854929008B0E006B97C9 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB854829008B0E006B97C9 /* StatisticModel.swift */; };
 		E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */; };
 		E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4768E2900116A001A9E5E /* outComeChartView.swift */; };
+		E2FDF1EA2900347300AB1258 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDF1E92900347300AB1258 /* StatisticViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DC94F703A7878435FCCE5DA /* Pods-financeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-financeapp.debug.xcconfig"; path = "Target Support Files/Pods-financeapp/Pods-financeapp.debug.xcconfig"; sourceTree = "<group>"; };
 		30E65331B2B244F5D1154702 /* Pods-financeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-financeapp.release.xcconfig"; path = "Target Support Files/Pods-financeapp/Pods-financeapp.release.xcconfig"; sourceTree = "<group>"; };
 		9B54B07A91033F51A5BAE107 /* Pods_financeapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_financeapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E20F0AB4290089B900E30F7E /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
 		E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountOfMoneyDataManager.swift; sourceTree = "<group>"; };
@@ -62,13 +66,15 @@
 		E2BEF78428F598E8002ECFC7 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		E2C80DE428F5C28B00234FD3 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2C80DE628F5C78500234FD3 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
-		E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		E2DB431428F9265F001FE45B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellModel.swift; sourceTree = "<group>"; };
 		E2E156B928FAC8EB009DD2B2 /* Categories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Categories.xcdatamodel; sourceTree = "<group>"; };
+		E2EA02C329007FF2000CD963 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
 		E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		E2EB854829008B0E006B97C9 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
 		E2F4768E2900116A001A9E5E /* outComeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outComeChartView.swift; sourceTree = "<group>"; };
+		E2FDF1E92900347300AB1258 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +236,9 @@
 		E2D2EF2728FFE9C600796C84 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
-				E2D2EF2828FFED1400796C84 /* StatisticViewController.swift */,
+				E2FDF1E92900347300AB1258 /* StatisticViewController.swift */,
+				E2EA02C329007FF2000CD963 /* StatisticViewModel.swift */,
+				E2EA02C529008944000CD963 /* CellView */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -251,15 +259,40 @@
 				E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */,
 				E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */,
 				E2DB478628F9363A001FE45B /* SideMenuCellModel.swift */,
+				E2EB854829008B0E006B97C9 /* StatisticModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2EA02C129007F56000CD963 /* TransactionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */,
+			);
+			path = TransactionViewCell;
+			sourceTree = "<group>";
+		};
+		E2EA02C229007F64000CD963 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				E2F4768E2900116A001A9E5E /* outComeChartView.swift */,
+			);
+			path = ChartView;
+			sourceTree = "<group>";
+		};
+		E2EA02C529008944000CD963 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				E20F0AB4290089B900E30F7E /* StatisticTableViewCell.swift */,
+			);
+			path = CellView;
 			sourceTree = "<group>";
 		};
 		E2EB33C928F8E83F00AF8642 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				E2F4768E2900116A001A9E5E /* outComeChartView.swift */,
-				E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */,
+				E2EA02C229007F64000CD963 /* ChartView */,
+				E2EA02C129007F56000CD963 /* TransactionViewCell */,
 				E2DB431828F93147001FE45B /* SideMenu */,
 			);
 			path = Subviews;
@@ -386,14 +419,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EB854929008B0E006B97C9 /* StatisticModel.swift in Sources */,
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */,
-				E2D2EF2928FFED1400796C84 /* StatisticViewController.swift in Sources */,
 				E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
 				E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */,
+				E2FDF1EA2900347300AB1258 /* StatisticViewController.swift in Sources */,
 				E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */,
+				E20F0AB5290089B900E30F7E /* StatisticTableViewCell.swift in Sources */,
 				E2E156BA28FAC8EB009DD2B2 /* CoreData.xcdatamodeld in Sources */,
 				E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */,
 				E27C7AE428F97EE3002AA5ED /* CreateCategoryViewModel.swift in Sources */,
@@ -401,6 +436,7 @@
 				E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */,
 				E24E398228FED96A006ACF8F /* Categories+CoreDataProperties.swift in Sources */,
 				E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */,
+				E2EA02C429007FF2000CD963 /* StatisticViewModel.swift in Sources */,
 				E2C80DE528F5C28B00234FD3 /* CategoryCollectionViewCell.swift in Sources */,
 				E2DB431528F9265F001FE45B /* SideMenuView.swift in Sources */,
 				E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */,

@@ -25,6 +25,13 @@ class SideMenuView: UIView, SideMenuViewDelegate {
             action: {
                 self.performSegueWith(identifier: "showCreateCategoryViewController")
             }
+        ),
+        SideMenuCellModel(
+            name: "Статистика",
+            imageName: "info",
+            action: {
+                self.performSegueWith(identifier: "showStatisticsViewController")
+            }
         )
     ]
     
