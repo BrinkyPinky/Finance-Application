@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import RxDataSources
 import RxSwift
+import SwiftUICharts
 
 //rxDataSource Section Object
 struct SectionOfStatisticModel {
@@ -48,6 +49,7 @@ class StatisticViewModel: StatisticViewModelProtocol {
     
     // MARK: Get All Information
     func getInformation() {
+        //getting TransactionModel from coredata
         let predicate = NSPredicate(
             format: "(date >= %@) AND (date <= %@)",
             Date().addingTimeInterval(-2592000) as CVarArg,
@@ -58,28 +60,57 @@ class StatisticViewModel: StatisticViewModelProtocol {
         let elements = try? viewController.context.fetch(fetchRequest)
         guard let elements else { return }
         
+        //getting data to present
         var profitSummary: Double = 0
         var expenditureSummary: Double = 0
         var categorySummary = [String:Double]()
-        for i in elements {
-            if i.isIncome {
-                profitSummary += i.amount
+        var sevenDaysSpendSummary = [(String,Double)]()
+        
+        for i in 0...6 {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d"
+            sevenDaysSpendSummary.append((
+                dateFormatter.string(from: Date().addingTimeInterval(TimeInterval((-86400) * i))),
+                0
+            ))
+        }
+        sevenDaysSpendSummary.reverse()
+        
+        for element in elements {
+            if element.isIncome {
+                profitSummary += element.amount
             } else {
-                expenditureSummary += i.amount
-                if categorySummary.contains(where: { $0.key == i.category }) {
-                    categorySummary[i.category]! += i.amount
+                expenditureSummary += element.amount
+                if categorySummary.contains(where: { $0.key == element.category }) {
+                    categorySummary[element.category]! += element.amount
                 } else {
-                    categorySummary[i.category] = i.amount
+                    categorySummary[element.category] = element.amount
+                }
+                
+                //sevenDaysSummary
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM d"
+                let dateFormatted = dateFormatter.string(from: element.date)
+                
+                if let index = sevenDaysSpendSummary.firstIndex(where: { $0.0 == dateFormatted }) {
+                    let oldElement = sevenDaysSpendSummary.remove(at: index)
+                    sevenDaysSpendSummary.insert(
+                        (oldElement.0, oldElement.1 + element.amount),
+                        at: index
+                    )
                 }
             }
         }
-        viewController.updateProfitLabel(
+                
+        //present data
+        viewController.setProfitLabel(
             "\(FormatValueManager.shared.formatToDecimalNumber(profitSummary) ?? "Нет информации") ₽"
         )
-        viewController.updateExpenditureLabel(
+        viewController.setExpenditureLabel(
             "\(FormatValueManager.shared.formatToDecimalNumber(expenditureSummary) ?? "Нет информации") ₽"
         )
-        
+        viewController.setChartView(ChartData(values: sevenDaysSpendSummary))
+                
         var statisticsModels = [StatisticModel]()
         categorySummary.forEach { (key: String, value: Double) in
             let statisticModel = StatisticModel(
@@ -89,6 +120,8 @@ class StatisticViewModel: StatisticViewModelProtocol {
             )
             statisticsModels.append(statisticModel)
         }
+        
+        guard !statisticsModels.isEmpty else { return }
         sections.onNext([SectionOfStatisticModel(header: "Траты по категориям", items: statisticsModels)])
     }
 }

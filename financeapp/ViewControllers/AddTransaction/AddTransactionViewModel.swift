@@ -18,7 +18,7 @@ protocol AddTransactionViewModelProtocol {
     func categoryNameForItem(at indexPath: IndexPath) -> String
     func numberOfItemsInSection() -> Int
     func formatDate(_ date: Date?) -> String
-    func saveTransaction(amount: String?, date: Date, categoryIndexPath: IndexPath?, comment: String?, errorMessage: (String) -> Void, completion: () -> Void)
+    func saveTransaction(amount: String?, date: Date, categoryIndexPath: IndexPath?, errorMessage: (String) -> Void, completion: () -> Void)
 }
 
 class AddTransactionViewModel: AddTransactionViewModelProtocol {
@@ -96,7 +96,6 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         amount: String?,
         date: Date,
         categoryIndexPath: IndexPath?,
-        comment: String?,
         errorMessage: (String) -> Void,
         completion: () -> Void
     ) {
@@ -122,7 +121,6 @@ class AddTransactionViewModel: AddTransactionViewModelProtocol {
         transaction.date = date
         transaction.category = categoryName
         transaction.isIncome = isIncome
-        transaction.comment = comment ?? ""
         
         do {
             try viewController.context.save()

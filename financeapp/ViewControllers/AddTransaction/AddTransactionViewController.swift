@@ -15,13 +15,11 @@ protocol AddTransactionViewControllerDelegate: AnyObject {
 }
 
 class AddTransactionViewController: UIViewController, AddTransactionViewControllerDelegate {
-    
     @IBOutlet private var transactionAmountTextField: UITextField!
     @IBOutlet private var dateTextField: UITextField!
     @IBOutlet private var incomeButton: UIButton!
     @IBOutlet private var outcomeButton: UIButton!
     @IBOutlet private var categoriesCollectionView: UICollectionView!
-    @IBOutlet private var transactionCommentTextView: UITextView!
     private let datePicker = UIDatePicker()
     
     private var viewModel: AddTransactionViewModelProtocol!
@@ -62,8 +60,7 @@ class AddTransactionViewController: UIViewController, AddTransactionViewControll
         viewModel.saveTransaction(
             amount: transactionAmountTextField.text,
             date: datePicker.date,
-            categoryIndexPath: categoriesCollectionView.indexPathsForSelectedItems?.first,
-            comment: transactionCommentTextView.text
+            categoryIndexPath: categoriesCollectionView.indexPathsForSelectedItems?.first
         ) { message in
             showAlert(message: message)
         } completion: {
@@ -91,6 +88,7 @@ extension AddTransactionViewController: UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
         
         cell.categoryNameLabel.text = viewModel.categoryNameForItem(at: indexPath)
+        cell.categoryNameLabel.highlightedTextColor = .white
         
         return cell
     }
@@ -145,11 +143,5 @@ extension AddTransactionViewController {
         datePicker.rx.date.subscribe { [unowned self] date in
             dateTextField.text = viewModel.formatDate(date.element)
         }.disposed(by: disposeBag)
-        
-        //comment TextView
-        transactionCommentTextView.layer.cornerRadius = 10
-        transactionCommentTextView.layer.borderColor = UIColor.opaqueSeparator.cgColor
-        transactionCommentTextView.layer.borderWidth = 0.5
-        transactionCommentTextView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
 }

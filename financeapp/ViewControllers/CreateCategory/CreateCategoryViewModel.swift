@@ -46,6 +46,7 @@ class CreateCategoryViewModel: CreateCategoryViewModelProtocol {
     }
     
     var sections = BehaviorSubject<[SectionOfCategoryModel]>(value: [])
+    
     unowned var viewController: CreateCategoryViewControllerDelegate!
             
     // MARK: Init

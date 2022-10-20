@@ -10,18 +10,22 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import CoreData
+import SwiftUICharts
+import SwiftUI
 
 protocol StatisticViewControllerDelegate: AnyObject {
     var context: NSManagedObjectContext { get }
-    func updateProfitLabel(_ text: String)
-    func updateExpenditureLabel(_ text: String)
+    func setProfitLabel(_ text: String)
+    func setExpenditureLabel(_ text: String)
+    func setChartView(_ data: ChartData)
 }
 
 class StatisticViewController: UIViewController, StatisticViewControllerDelegate {
-    //Labels
+    //interface elements
     @IBOutlet private var profitLabel: UILabel!
     @IBOutlet private var expenditureLabel: UILabel!
-
+    @IBOutlet var chartView: UIView!
+    
     //tableView
     @IBOutlet private var tableView: UITableView!
     let dataSource = RxTableViewSectionedReloadDataSource<SectionOfStatisticModel>{ dataSource, tableView, indexPath, item in
@@ -55,11 +59,20 @@ class StatisticViewController: UIViewController, StatisticViewControllerDelegate
     
     // MARK: Update Interface Values
     
-    func updateProfitLabel(_ text: String) {
+    func setProfitLabel(_ text: String) {
         profitLabel.text = text
     }
     
-    func updateExpenditureLabel(_ text: String) {
+    func setExpenditureLabel(_ text: String) {
         expenditureLabel.text = text
+    }
+    
+    func setChartView(_ data: ChartData) {
+        let hostingChartView = UIHostingController(rootView: ChartView(
+            size: CGSize(width: chartView.frame.width, height: chartView.frame.height),
+            chartData: data)
+        )
+        hostingChartView.view.frame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        chartView.addSubview(hostingChartView.view)
     }
 }

@@ -11,13 +11,14 @@
 		E20F0AB5290089B900E30F7E /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F0AB4290089B900E30F7E /* StatisticTableViewCell.swift */; };
 		E21441CB28F93A570066B030 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21441CA28F93A570066B030 /* CreateCategoryViewController.swift */; };
 		E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2176A1228F6E5A000F82C66 /* Extension + UIViewController.swift */; };
-		E21F614D2900238300F8B7B6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E21F614C2900238300F8B7B6 /* SwiftUICharts */; };
 		E22BCF1E28FF4233000C2770 /* AmountOfMoneyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */; };
 		E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CB78928F8DF5C00B1F648 /* MainScreenViewController.swift */; };
 		E24E397F28FED96A006ACF8F /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397B28FED96A006ACF8F /* Transaction+CoreDataClass.swift */; };
 		E24E398028FED96A006ACF8F /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397C28FED96A006ACF8F /* Transaction+CoreDataProperties.swift */; };
 		E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */; };
 		E24E398228FED96A006ACF8F /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */; };
+		E2641C732901466200A6E6F5 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C722901466200A6E6F5 /* ChartView.swift */; };
+		E2641C76290148A100A6E6F5 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = E2641C75290148A100A6E6F5 /* SwiftUICharts */; };
 		E26DB57E28F5966A00434A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57D28F5966A00434A8A /* AppDelegate.swift */; };
 		E26DB58028F5966A00434A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26DB57F28F5966A00434A8A /* SceneDelegate.swift */; };
 		E26DB58528F5966A00434A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26DB58328F5966A00434A8A /* Main.storyboard */; };
@@ -36,7 +37,6 @@
 		E2EB33CB28F8E85D00AF8642 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */; };
 		E2EB854929008B0E006B97C9 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB854829008B0E006B97C9 /* StatisticModel.swift */; };
 		E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */; };
-		E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4768E2900116A001A9E5E /* outComeChartView.swift */; };
 		E2FDF1EA2900347300AB1258 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDF1E92900347300AB1258 /* StatisticViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +53,7 @@
 		E24E397C28FED96A006ACF8F /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E24E397D28FED96A006ACF8F /* Categories+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		E24E397E28FED96A006ACF8F /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E2641C722901466200A6E6F5 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		E26DB57A28F5966A00434A8A /* financeapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = financeapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26DB57D28F5966A00434A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26DB57F28F5966A00434A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		E2EB33CA28F8E85D00AF8642 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E2EB854829008B0E006B97C9 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		E2ECEB0528F5B2DA007F8B8E /* Extension + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITextField.swift"; sourceTree = "<group>"; };
-		E2F4768E2900116A001A9E5E /* outComeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outComeChartView.swift; sourceTree = "<group>"; };
 		E2FDF1E92900347300AB1258 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B42A1BBB5E06C62B535AE0 /* Pods_financeapp.framework in Frameworks */,
-				E21F614D2900238300F8B7B6 /* SwiftUICharts in Frameworks */,
+				E2641C76290148A100A6E6F5 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +133,14 @@
 				E22BCF1D28FF4233000C2770 /* AmountOfMoneyDataManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E2641C712901464D00A6E6F5 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				E2641C722901466200A6E6F5 /* ChartView.swift */,
+			);
+			path = ChartView;
 			sourceTree = "<group>";
 		};
 		E26DB57128F5966A00434A8A = {
@@ -238,6 +246,7 @@
 			children = (
 				E2FDF1E92900347300AB1258 /* StatisticViewController.swift */,
 				E2EA02C329007FF2000CD963 /* StatisticViewModel.swift */,
+				E2641C712901464D00A6E6F5 /* ChartView */,
 				E2EA02C529008944000CD963 /* CellView */,
 			);
 			path = Statistic;
@@ -272,14 +281,6 @@
 			path = TransactionViewCell;
 			sourceTree = "<group>";
 		};
-		E2EA02C229007F64000CD963 /* ChartView */ = {
-			isa = PBXGroup;
-			children = (
-				E2F4768E2900116A001A9E5E /* outComeChartView.swift */,
-			);
-			path = ChartView;
-			sourceTree = "<group>";
-		};
 		E2EA02C529008944000CD963 /* CellView */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +292,6 @@
 		E2EB33C928F8E83F00AF8642 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				E2EA02C229007F64000CD963 /* ChartView */,
 				E2EA02C129007F56000CD963 /* TransactionViewCell */,
 				E2DB431828F93147001FE45B /* SideMenu */,
 			);
@@ -317,7 +317,7 @@
 			);
 			name = financeapp;
 			packageProductDependencies = (
-				E21F614C2900238300F8B7B6 /* SwiftUICharts */,
+				E2641C75290148A100A6E6F5 /* SwiftUICharts */,
 			);
 			productName = financeapp;
 			productReference = E26DB57A28F5966A00434A8A /* financeapp.app */;
@@ -348,7 +348,7 @@
 			);
 			mainGroup = E26DB57128F5966A00434A8A;
 			packageReferences = (
-				E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */,
+				E2641C74290148A100A6E6F5 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = E26DB57B28F5966A00434A8A /* Products */;
 			projectDirPath = "";
@@ -420,12 +420,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2EB854929008B0E006B97C9 /* StatisticModel.swift in Sources */,
+				E2641C732901466200A6E6F5 /* ChartView.swift in Sources */,
 				E2ECEB0628F5B2DA007F8B8E /* Extension + UITextField.swift in Sources */,
 				E2176A1328F6E5A000F82C66 /* Extension + UIViewController.swift in Sources */,
 				E22CB78A28F8DF5C00B1F648 /* MainScreenViewController.swift in Sources */,
 				E24E398128FED96A006ACF8F /* Categories+CoreDataClass.swift in Sources */,
 				E2C80DE728F5C78600234FD3 /* AddTransactionViewModel.swift in Sources */,
-				E2F4768F2900116A001A9E5E /* outComeChartView.swift in Sources */,
 				E2FDF1EA2900347300AB1258 /* StatisticViewController.swift in Sources */,
 				E2B2240228FE9A4800489A07 /* FormatValueManager.swift in Sources */,
 				E20F0AB5290089B900E30F7E /* StatisticTableViewCell.swift in Sources */,
@@ -668,7 +668,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+		E2641C74290148A100A6E6F5 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
@@ -679,9 +679,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E21F614C2900238300F8B7B6 /* SwiftUICharts */ = {
+		E2641C75290148A100A6E6F5 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E21F614B2900238300F8B7B6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = E2641C74290148A100A6E6F5 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */

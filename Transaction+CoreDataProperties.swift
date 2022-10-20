@@ -18,7 +18,6 @@ extension Transaction {
 
     @NSManaged public var amount: Double
     @NSManaged public var category: String
-    @NSManaged public var comment: String
     @NSManaged public var date: Date
     @NSManaged public var isIncome: Bool
 
