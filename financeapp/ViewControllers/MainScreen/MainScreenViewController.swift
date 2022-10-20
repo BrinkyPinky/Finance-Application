@@ -93,7 +93,7 @@ class MainScreenViewController: UIViewController, MainScreenViewControllerDelega
     
     // MARK: TransactionList DidChange
     func newTransactionAdded() {
-        viewModel.getSections()
+        viewModel.getSections(needToUpLimit: false)
     }
     
     // MARK: Update Amount Of Money
@@ -111,10 +111,19 @@ extension MainScreenViewController {
         //tableView
         viewModel.sections.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         tableView.rx.rowHeight.onNext(85)
+        
+        //didScroll
+        tableView.rx.didScroll.subscribe { [unowned self] event in
+            if tableView.contentOffset.y > tableView.contentSize.height - tableView.frame.size.height {
+                viewModel.getSections(needToUpLimit: true)
+            }
+        }.disposed(by: disposeBag)
+        
         //delete item
         tableView.rx.itemDeleted.subscribe { [unowned self] indexPath in
             viewModel.deleteItem(at: indexPath)
         }.disposed(by: disposeBag)
+        
         //select item
         tableView.rx.itemSelected.subscribe { [unowned self] indexPath in
             tableView.deselectRow(at: indexPath, animated: true)
@@ -168,11 +177,5 @@ extension MainScreenViewController {
             default: print("swipe error")
             }
         }.disposed(by: disposeBag)
-    }
-}
-
-extension MainScreenViewController {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        85
     }
 }

@@ -30,7 +30,7 @@ protocol MainScreenViewModelProtocol {
     var gesturePanBeginingPosition: CGFloat { get set }
     var sections: BehaviorSubject<[SectionOfTransactionModel]> { get }
     init(_ viewController: MainScreenViewControllerDelegate)
-    func getSections()
+    func getSections(needToUpLimit: Bool)
     func deleteItem(at indexPath: IndexPath)
 }
 
@@ -43,19 +43,29 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
     //tableView Sections
     var sections = BehaviorSubject<[SectionOfTransactionModel]>(value: [])
     
+    //fetching Transactions
+    private var fetchLimit = 20
+    private var isPaginating = false
+    
     unowned var viewController: MainScreenViewControllerDelegate!
     
     // MARK: Init
     required init(_ viewController: MainScreenViewControllerDelegate) {
         self.viewController = viewController
-        getSections()
+        getSections(needToUpLimit: false)
     }
     
     // MARK: GetSections Method
-    func getSections() {
+    func getSections(needToUpLimit: Bool) {
+        guard !isPaginating else { return }
+        isPaginating = true
+        if needToUpLimit {
+            fetchLimit += 20
+        }
+        
         let fetchRequest = NSFetchRequest<Transaction>(entityName: "Transaction")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        fetchRequest.fetchLimit = 20
+        fetchRequest.fetchLimit = fetchLimit
         let transactions = try? viewController.context.fetch(fetchRequest)
         
         guard let transactions else { return }
@@ -91,6 +101,7 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
         sections.append(firstLevelSection)
         
         self.sections.onNext(sections)
+        isPaginating = false
     }
     
     // MARK: Delete Item
