@@ -60,6 +60,15 @@ class MainScreenViewModel: MainScreenViewModelProtocol {
         guard !isPaginating else { return }
         isPaginating = true
         if needToUpLimit {
+            var rowsCount = 0
+            guard let sections = try? sections.value() else { isPaginating = false; return }
+            sections.forEach { section in
+                rowsCount += section.items.count
+            }
+            guard rowsCount == fetchLimit else {
+                isPaginating = false
+                return
+            }
             fetchLimit += 20
         }
         

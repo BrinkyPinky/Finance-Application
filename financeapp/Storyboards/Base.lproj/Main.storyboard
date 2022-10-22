@@ -99,7 +99,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mjp-14-Xwm">
-                        <nil key="title"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Edit" id="wU1-Vs-wj3"/>
                             <barButtonItem title="Расход" style="done" id="ihD-vc-tqh">
@@ -283,7 +282,7 @@
             </objects>
             <point key="canvasLocation" x="1954" y="-929"/>
         </scene>
-        <!--Statistic View Controller-->
+        <!--Статистика-->
         <scene sceneID="8Y4-pd-NAO">
             <objects>
                 <viewController id="FDY-UR-hnd" customClass="StatisticViewController" customModule="financeapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -418,7 +417,7 @@
                             <constraint firstItem="sad-lz-HP9" firstAttribute="top" secondItem="BDx-33-mb2" secondAttribute="top" id="vZD-D5-ODS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5qj-S9-WwL"/>
+                    <navigationItem key="navigationItem" title="Статистика" id="5qj-S9-WwL"/>
                     <connections>
                         <outlet property="chartView" destination="sMZ-YP-d0j" id="LQj-hS-mv8"/>
                         <outlet property="expenditureLabel" destination="wQj-CA-yfO" id="7OA-XA-hWh"/>
